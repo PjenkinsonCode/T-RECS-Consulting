@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Driftwood Consulting - Professional Business Consulting Services">
+    <title>Our Services - Driftwood Consulting</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .services-container {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 30px;
+            color: #3498db;
+        }
+
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-features li i {
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #f8f9fa;
+            padding: 80px 0;
+            margin: 80px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid #3498db;
+            position: relative;
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3498db;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-header h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #3498db;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .pricing-features li i {
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('../images/cta-bg.jpg') center/cover;
+            color: #fff;
+            margin: 80px 0;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html">DRIFTWOOD CONSULTING</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-links">
+            <a href="../pages/services.html">Services</a>
+            <a href="../pages/work.html">Work</a>
+            <a href="../pages/about.html">About</a>
+            <a href="../pages/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="services-container">
+        <section class="services">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Explore our specialized offerings. Click a service to learn more and get in touch!</p>
+            </div>
+            <div class="services-grid">
+                <a class="service-card" href="services/service-m365.html">
+                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Microsoft 365 Deployment</h3>
+                    <p>End-to-end setup of Microsoft 365—Exchange, SharePoint, Teams, and OneDrive—for a confident launch.</p>
+                </a>
+                <a class="service-card" href="services/service-teams-collab.html">
+                    <div class="service-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Teams & Collaboration Enablement</h3>
+                    <p>Design and implement Microsoft Teams for optimal communication, collaboration, and governance.</p>
+                </a>
+                <a class="service-card" href="services/service-sharepoint.html">
+                    <div class="service-icon"><i class="fas fa-sitemap"></i></div>
+                    <h3>SharePoint Online Solutions</h3>
+                    <p>Build intranets, document libraries, and automated workflows to streamline your digital workplace.</p>
+                </a>
+                <a class="service-card" href="services/service-power-platform.html">
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Power Platform Integration</h3>
+                    <p>Leverage Power BI, Power Automate, and Power Apps to turn data into insights and smart workflows.</p>
+                </a>
+                <a class="service-card" href="services/service-training.html">
+                    <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>User Training & Adoption</h3>
+                    <p>Tailored training and change management to ensure your team embraces new tools and uses them effectively.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="section-title">
+                <h2>Pricing Plans</h2>
+                <p>Flexible solutions to meet your business needs</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">$2,500<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Initial Consultation</li>
+                        <li><i class="fas fa-check"></i> Basic Strategy Development</li>
+                        <li><i class="fas fa-check"></i> Monthly Progress Reports</li>
+                        <li><i class="fas fa-check"></i> Email Support</li>
+                    </ul>
+                    <a href="../pages/contact.html" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="price">$5,000<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Starter</li>
+                        <li><i class="fas fa-check"></i> Comprehensive Strategy</li>
+                        <li><i class="fas fa-check"></i> Weekly Progress Meetings</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Team Training</li>
+                    </ul>
+                    <a href="../pages/contact.html" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">Custom<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> Dedicated Consultant</li>
+                        <li><i class="fas fa-check"></i> 24/7 Support</li>
+                        <li><i class="fas fa-check"></i> Custom Solutions</li>
+                        <li><i class="fas fa-check"></i> Executive Coaching</li>
+                    </ul>
+                    <a href="../pages/contact.html" class="cta-button">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how we can help you achieve your goals and drive sustainable growth.</p>
+                <a href="../pages/contact.html" class="cta-button">Schedule a Consultation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> info@driftwoodconsulting.com</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../pages/services.html">Services</a></li>
+                    <li><a href="../pages/work.html">Our Work</a></li>
+                    <li><a href="../pages/about.html">About Us</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Driftwood Consulting. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Driftwood Consulting - Our Work and Client Success Stories">
+    <title>Our Work - Driftwood Consulting</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .work-container {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Testimonials Carousel Section */
+        .testimonials {
+            margin-bottom: 80px;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            border-left: 4px solid #3498db;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #3498db;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: serif;
+            opacity: 0.3;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 3px solid #3498db;
+        }
+
+        .author-info h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .rating {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .carousel-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .carousel-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .carousel-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #3498db;
+            transform: scale(1.2);
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f4d03f;
+            color: #2c3e50;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(244, 208, 63, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: #f1c40f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244, 208, 63, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 40px 25px;
+            }
+
+            .testimonial-content {
+                font-size: 1.1rem;
+            }
+
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .carousel-controls {
+                gap: 15px;
+            }
+
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html">DRIFTWOOD CONSULTING</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="work.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="work-container">
+        <section class="testimonials">
+            <div class="section-title">
+                <h2>Client Success Stories</h2>
+                <p>Hear from the businesses we've helped transform</p>
+            </div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                "Driftwood Consulting transformed our entire business operations. Their expertise in Microsoft 365 implementation helped us increase productivity by 40% and reduce operational costs significantly. The team was professional, responsive, and truly understood our business needs."
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="../images/client-1.jpg" alt="Sarah Johnson" class="author-image">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>CEO, TechFlow Solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                "The SharePoint solution they built for us revolutionized how our team collaborates. What used to take days now happens in hours. Their attention to detail and ongoing support has been exceptional. Highly recommend!"
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="../images/client-2.jpg" alt="Michael Chen" class="author-image">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>Operations Director, Global Innovations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                "Working with Driftwood Consulting was a game-changer for our security infrastructure. Their comprehensive security assessment and implementation gave us peace of mind and protected us from potential threats. Outstanding service!"
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="../images/client-3.jpg" alt="Emily Rodriguez" class="author-image">
+                                <div class="author-info">
+                                    <h4>Emily Rodriguez</h4>
+                                    <p>IT Manager, SecureNet Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                "The Power Platform solutions they developed automated our most time-consuming processes. Our team can now focus on strategic work instead of manual tasks. The ROI was immediate and substantial."
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="../images/client-4.jpg" alt="David Thompson" class="author-image">
+                                <div class="author-info">
+                                    <h4>David Thompson</h4>
+                                    <p>VP of Operations, DataFlow Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="carousel-indicators" id="indicators">
+                    <div class="indicator active"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h3>Ready to Create Your Success Story?</h3>
+            <p>Let's work together to achieve your business goals and build something remarkable.</p>
+            <a href="../pages/contact.html" class="cta-button">Partner With Us</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> info@driftwoodconsulting.com</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../pages/services.html">Services</a></li>
+                    <li><a href="../pages/work.html">Our Work</a></li>
+                    <li><a href="../pages/about.html">About Us</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Driftwood Consulting. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Testimonial Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            let autoPlayInterval;
+            let isTransitioning = false;
+
+            function updateCarousel() {
+                if (isTransitioning) return;
+                
+                isTransitioning = true;
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+                
+                // Update button states
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                
+                // Reset transition flag after animation completes
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 500); // Match the CSS transition duration
+            }
+
+            function nextSlide() {
+                if (isTransitioning || currentSlide >= totalSlides - 1) return;
+                currentSlide++;
+                updateCarousel();
+                resetAutoPlay();
+            }
+
+            function prevSlide() {
+                if (isTransitioning || currentSlide <= 0) return;
+                currentSlide--;
+                updateCarousel();
+                resetAutoPlay();
+            }
+
+            function goToSlide(index) {
+                if (isTransitioning || index === currentSlide || index < 0 || index >= totalSlides) return;
+                currentSlide = index;
+                updateCarousel();
+                resetAutoPlay();
+            }
+
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(() => {
+                    if (!isTransitioning) {
+                        if (currentSlide >= totalSlides - 1) {
+                            currentSlide = 0; // Loop back to first slide
+                        } else {
+                            currentSlide++;
+                        }
+                        updateCarousel();
+                    }
+                }, 6000); // Increased to 6 seconds for better user experience
+            }
+
+            function resetAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    startAutoPlay();
+                }
+            }
+
+            function stopAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                }
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                nextSlide();
+            });
+            
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                prevSlide();
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    goToSlide(index);
+                });
+            });
+
+            // Pause auto-play on hover
+            const carousel = document.querySelector('.testimonial-carousel');
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', startAutoPlay);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    nextSlide();
+                }
+            });
+
+            // Touch/swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                const threshold = 50; // Minimum swipe distance
+
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0) {
+                        // Swiped left - next slide
+                        nextSlide();
+                    } else {
+                        // Swiped right - previous slide
+                        prevSlide();
+                    }
+                }
+            }, { passive: true });
+
+            // Initialize carousel
+            updateCarousel();
+            startAutoPlay();
+        });
+    </script>
+</body>
+</html>
+
