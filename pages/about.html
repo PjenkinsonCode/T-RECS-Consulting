@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Driftwood Consulting - Our Story, Team, and Values">
-    <title>About Us - Driftwood Consulting</title>
+    <meta name="description" content="About T-RECS Technical Recreation Solutions - Our Story, Team, and Values">
+    <title>About Us - T-RECS Technical Recreation Solutions</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,55 +12,61 @@
         .about-container {
             max-width: 1200px;
             margin: 120px auto 50px;
-            padding: 0 20px;
+            padding: 0 5%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: #2c3e50;
+            color: #2193f0;
             margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .section-title p {
-            color: #666;
+            color: #ffffff;
             max-width: 600px;
             margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         /* Story Section */
         .story-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
-            margin-bottom: 80px;
-        }
-
-        .story-content {
-            padding-right: 30px;
+            margin-bottom: 100px;
+            padding: 60px 0;
         }
 
         .story-content h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 2rem;
+            color: #2193f0;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .story-content p {
-            color: #666;
-            margin-bottom: 20px;
+            color: #ffffff;
+            margin-bottom: 25px;
             line-height: 1.8;
+            font-size: 1.05rem;
+            opacity: 0.9;
         }
 
         .story-image {
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(33, 147, 240, 0.2);
+            border: 2px solid #2193f0;
         }
 
         .story-image img {
@@ -71,72 +77,109 @@
 
         /* Values Section */
         .values-section {
-            background: #f8f9fa;
+            background: #000000;
             padding: 80px 0;
             margin: 80px 0;
+            border-radius: 15px;
+        }
+
+        .values-section .section-title h2 {
+            color: #ffffff;
+        }
+
+        .values-section .section-title p {
+            color: #cccccc;
         }
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
 
         .value-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .value-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(33, 147, 240, 0.2);
+            border-color: #2193f0;
         }
 
         .value-icon {
-            width: 70px;
-            height: 70px;
-            background: #e3f2fd;
+            width: 80px;
+            height: 80px;
+            background: #2193f0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
         }
 
         .value-icon i {
-            font-size: 30px;
-            color: #3498db;
+            font-size: 35px;
+            color: #ffffff;
+        }
+
+        .value-card h3 {
+            color: #000000;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .values-section .value-card p {
+            color: #2193f0 !important;
+            line-height: 1.6;
+            opacity: 1;
         }
 
         /* Team Section */
         .team-section {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .team-member {
-            background: #fff;
-            border-radius: 10px;
+            background: #ffffff;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .team-member:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(33, 147, 240, 0.2);
+            border-color: #2193f0;
         }
 
         .member-image {
-            height: 300px;
+            height: 350px;
             overflow: hidden;
+            background: linear-gradient(45deg, #2193f0, #000000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .member-image img {
@@ -147,78 +190,86 @@
         }
 
         .team-member:hover .member-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .member-info {
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }
 
         .member-info h3 {
-            color: #2c3e50;
-            margin-bottom: 5px;
+            color: #000000;
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .member-info .position {
-            color: #3498db;
+            color: #2193f0;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
         }
 
         .member-info p {
-            color: #666;
-            margin-bottom: 15px;
+            color: #666666;
+            margin-bottom: 25px;
+            line-height: 1.6;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .social-links a {
-            color: #666;
-            transition: color 0.3s ease;
+            color: #666666;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-links a:hover {
-            color: #3498db;
+            color: #2193f0;
+            transform: scale(1.2);
         }
 
         /* Stats Section */
         .stats-section {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
                         url('../images/stats-bg.jpg') center/cover;
             padding: 80px 0;
             margin: 80px 0;
             color: #fff;
+            border-radius: 15px;
+            border: 2px solid #2193f0;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            gap: 40px;
             text-align: center;
         }
 
         .stat-item h3 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #2193f0;
+            font-weight: 700;
         }
 
         .stat-item p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
             .story-section {
                 grid-template-columns: 1fr;
-            }
-
-            .story-content {
-                padding-right: 0;
+                gap: 40px;
             }
 
             .values-grid,
@@ -226,13 +277,21 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .story-content h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <header class="navbar">
         <div class="logo">
-            <a href="../index.html">DRIFTWOOD CONSULTING</a>
+            <a href="../index.html"><img src="../images/logo.png.jpeg" alt="T-RECS Technical Recreation Solutions Logo" class="site-logo-img"></a>
         </div>
         <div class="hamburger">
             <span></span>
@@ -241,7 +300,6 @@
         </div>
         <nav class="nav-links">
             <a href="services.html">Services</a>
-            <a href="work.html">Work</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </nav>
@@ -251,12 +309,12 @@
         <section class="story-section">
             <div class="story-content">
                 <h2>Our Story</h2>
-                <p>Founded in 2025 by Paiden Jenkinson, Driftwood Consulting is a new and innovative business advisory firm. Our journey begins with a clear mission: to help businesses navigate change and achieve sustainable growth.</p>
+                <p>Founded in 2025 by Paiden Jenkinson, "T-RECS" Technical Recreation Solutions is a new and innovative business advisory firm. Our journey begins with a clear mission: to help businesses navigate change and achieve sustainable growth.</p>
                 <p>As a fresh voice in the consulting industry, we bring a unique perspective and modern approach to business strategy. We're committed to understanding each client's unique challenges and opportunities, developing tailored strategies that drive real, measurable results.</p>
                 <p>What sets us apart is our commitment to building long-term relationships with our clients. We don't believe in one-size-fits-all solutions. Instead, we work closely with you to develop customized strategies that align with your specific goals and vision.</p>
             </div>
             <div class="story-image">
-                <img src="../images/about-story.jpg" alt="Our Office">
+                <img src="../images/cyber-trex.png.jpeg" alt="T-RECS Cyber T-Rex Mascot">
             </div>
         </section>
 
@@ -271,28 +329,28 @@
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Integrity</h3>
-                    <p>We believe in honest, transparent relationships with our clients and partners.</p>
+                    <p>We believe in honest, transparent relationships with our clients and partners, building trust through every interaction.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3>Innovation</h3>
-                    <p>We constantly seek new ways to solve complex business challenges.</p>
+                    <p>We constantly seek new ways to solve complex business challenges, embracing cutting-edge technology and creative solutions.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Collaboration</h3>
-                    <p>We work together with our clients to achieve shared success.</p>
+                    <p>We work together with our clients to achieve shared success, fostering partnerships that drive mutual growth.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Excellence</h3>
-                    <p>We strive for the highest quality in everything we do.</p>
+                    <p>We strive for the highest quality in everything we do, delivering results that exceed expectations.</p>
                 </div>
             </div>
         </section>
@@ -305,15 +363,16 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-image">
-                        <img src="../images/team-1.jpg" alt="Paiden Jenkinson">
+                        <img src="../images/cyber-trex.png.jpeg" alt="Paiden Jenkinson - T-RECS Founder">
                     </div>
                     <div class="member-info">
                         <h3>Paiden Jenkinson</h3>
                         <p class="position">Founder & CEO</p>
-                        <p>Passionate about helping businesses grow and succeed through strategic consulting and innovative solutions.</p>
+                        <p>Passionate about helping businesses grow and succeed through strategic consulting and innovative solutions. With a vision for modern business transformation, Paiden leads T-RECS with dedication to client success and technological advancement.</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -346,15 +405,13 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Contact Us</h4>
-                <p><i class="fas fa-envelope"></i> info@driftwoodconsulting.com</p>
-                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</p>
+                <p><i class="fas fa-envelope"></i> info@trecs-solutions.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> North Saanich, BC</p>
             </div>
             <div class="footer-section">
                 <h4>Follow Us</h4>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -362,15 +419,14 @@
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="../pages/services.html">Services</a></li>
-                    <li><a href="../pages/work.html">Our Work</a></li>
-                    <li><a href="../pages/about.html">About Us</a></li>
-                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Driftwood Consulting. All rights reserved.</p>
+            <p>&copy; 2025 T-RECS Technical Recreation Solutions. All rights reserved.</p>
         </div>
     </footer>
 
