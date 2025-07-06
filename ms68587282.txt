@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "t-recs.ca",
+  "Id": "cfcd92b4-7e87-4ac2-9234-f45ff6caf9e1"
+}
