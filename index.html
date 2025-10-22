@@ -3,75 +3,924 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="T-RECS Technical Recreation Solutions - Professional Business Consulting Services">
-    <title>T-RECS Technical Recreation Solutions</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="T-RECS helps sport and recreation organizations leverage Microsoft 365, Teams, SharePoint, and Power Platform to streamline operations and enhance programs.">
+    <meta name="keywords" content="sport technology consulting, recreation management software, Microsoft 365 for sports, Teams for leagues, SharePoint for recreation">
+    <meta name="author" content="T-RECS Technical Recreation Solutions">
+    <meta name="theme-color" content="#2d5f2e">
+    
+    <title>T-RECS | Expert Techical Solutions and Consulting for Sport & Recreation Organizations</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d5f2e;
+            --secondary-green: #4a9e4a;
+            --light-green: #e8f5e9;
+            --dark-gray: #2c3e50;
+            --medium-gray: #546e7a;
+            --light-gray: #eceff1;
+            --white: #ffffff;
+            --accent-blue: #1976d2;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 65px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .brand-tagline {
+            font-size: 0.7rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-green);
+        }
+
+        .cta-button {
+            background: var(--secondary-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 158, 74, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 158, 74, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-green);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            padding: 100px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-dino {
+            position: absolute;
+            z-index: 2;
+            opacity: 0.9;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-dino:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-dino-left {
+            width: 200px;
+            height: auto;
+            bottom: 20px;
+            left: 5%;
+        }
+
+        .hero-dino-right {
+            width: 200px;
+            height: auto;
+            top: 20px;
+            right: 5%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-green);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-green);
+        }
+
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .trust-badge i {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .trust-badge h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-badge p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 60px 5%;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+        }
+
+        .problems-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .problem-card i {
+            font-size: 2.2rem;
+            color: var(--secondary-green);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        .problem-card p {
+            color: var(--medium-gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Services Overview */
+        .services-overview {
+            padding: 60px 5%;
+            background: white;
+            position: relative;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 2.5rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-category-card {
+            background: linear-gradient(135deg, var(--light-green) 0%, white 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--light-green);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
+        }
+
+        .service-category-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 158, 74, 0.1) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .service-category-card:hover::before {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+
+        .service-category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(74, 158, 74, 0.2);
+            border-color: var(--secondary-green);
+        }
+
+        .service-category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-green);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .service-category-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-green);
+        }
+
+        .service-category-card p {
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .service-count {
+            display: inline-block;
+            background: var(--secondary-green);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Combined Bottom Section */
+        .bottom-combined-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            padding: 60px 5%;
+        }
+
+        .combined-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .stats-section {
+            text-align: center;
+        }
+
+        .stats-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .testimonial-section {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 50px 5%;
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--medium-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 40px 5% 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-green);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .logo-text .brand-name {
+                font-size: 1.2rem;
+            }
+
+            .logo-text .brand-tagline {
+                font-size: 0.6rem;
+            }
+
+            .hero-dino-left, .hero-dino-right {
+                width: 120px;
+            }
+
+            .hero-dino-left {
+                bottom: 10px;
+                left: 2%;
+            }
+
+            .hero-dino-right {
+                top: 10px;
+                right: 2%;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .combined-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat {
+                padding: 1.5rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
         <div class="logo">
-            <a href="index.html"><img src="images/cyber-trex.png.jpeg" class="site-logo-img"></a>
+            <a href="index.html">
+                <img src="images/dino-soccer.png" alt="T-RECS Logo">
+            </a>
+            <div class="logo-text">
+                <span class="brand-name">T-RECS</span>
+                <span class="brand-tagline">Technical Recreation Solutions</span>
+            </div>
         </div>
-        <div class="navbar-logo-placeholder"></div>
-        <div class="hamburger">
+        <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <nav class="nav-links">
+        </button>
+        <nav class="nav-links" id="navLinks">
             <a href="pages/services.html">Services</a>
             <a href="pages/about.html">About</a>
-            <a href="pages/contact.html">Contact</a>
+            <a href="pages/contact.html" class="cta-button">Get Started</a>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
+            <img src="images/dino-soccer.png" alt="" class="hero-dino hero-dino-left" aria-hidden="true">
+            
             <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-main">T-RECS</span><br>
-                    <span class="hero-sub">Technical Recreation Solutions</span>
-                </h1>
-                <p>Listen. Identify. Act.</p>
-                <a href="pages/contact.html" class="cta-button">Schedule a Consultation</a>
-            </div>
-        </section>
-        <div class="cyber-trex-image-container" style="text-align:center; margin: 0.5em 0;">
-            <img src="images/cyber-trex.png.jpeg" alt="Cyber T-Rex Mascot" style="max-width: 350px; width: 100%; height: auto;" />
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-envelope"></i> info@trecs-solutions.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> North Saanich, BC</p>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="hero-text">
+                    <h1>Techical Recreation Solutions</h1>
+                    <p class="tagline">Transform your organization with data driven decision making and leading edge technology that is tailored for sport and recreation.</p>
+                    <p>We help sport and recreation organizations meet community demand and expectations while focusing on streamlining internal operations, processes and communication.</p>
+                    <div class="hero-buttons">
+                        <a href="pages/contact.html" class="btn-primary">Schedule a Consultation</a>
+                        <a href="pages/services.html" class="btn-secondary">View Services</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="trust-badge">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Microsoft Partner</h3>
+                        <p>Certified experts in M365 solutions</p>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Sport & Rec Specialists</h3>
+                        <p>Deep industry experience and understanding</p>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-headset"></i>
+                        <h3>Ongoing Support</h3>
+                        <p>Training and support that grows with you</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="pages/services.html">Services</a></li>
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 T-RECS Technical Recreation Solutions. All rights reserved.</p>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/main.js"></script>
-</body>
-</html>
+        <!-- Problem Section -->
+        <section class="problem-section">
+            <div class="section-header">
+                <h2>Challenges We Solve</h2>
+                <p>Sport and recreation organizations face unique technology challenges. We understand them because we've been there.</p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <i class="fas fa-folder-open"></i>
+                    <h3>Document Chaos</h3>
+                    <p>Registration forms, waivers, policies, and schedules scattered across email, drives, and filing cabinets.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Communication Breakdown</h3>
+                    <p>Coaches, parents, members, and staff struggling with fragmented communication across multiple platforms.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-calendar-times"></i>
+                    <h3>Manual Processes</h3>
+                    <p>Hours wasted on manual scheduling, registration tracking, and administrative tasks that should be automated.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-users-slash"></i>
+                    <h3>Limited Collaboration</h3>
+                    <p>Board members and volunteers can't easily access what they need or work together effectively.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Insights Gap</h3>
+                    <p>Making decisions without clear visibility into program performance, member engagement, and operational metrics.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security Concerns</h3>
+                    <p>Protecting sensitive member data and ensuring compliance while maintaining easy access for staff and volunteers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section class="services-overview">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive technology solutions designed specifically for sport and recreation organizations</p>
+            </div>
+            <div class="services-grid">
+                <a href="pages/services.html#assessment" class="service-category-card">
+                    <div class="service-count">6+ Services</div>
+                    <div class="service-category-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Assessment & Strategy</h3>
+                    <p>Comprehensive evaluations and strategic planning to identify opportunities and create transformation roadmaps.</p>
+                </a>
+                <a href="pages/services.html#microsoft365" class="service-category-card">
+                    <div class="service-count">8+ Services</div>
+                    <div class="service-category-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Microsoft 365 & Collaboration</h3>
+                    <p>Complete M365 deployment, SharePoint architecture, Teams implementation, and collaboration enablement.</p>
+                </a>
+                <a href="pages/services.html#automation" class="service-category-card">
+                    <div class="service-count">3+ Services</div>
+                    <div class="service-category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Process Automation</h3>
+                    <p>Intelligent workflows, Power Platform solutions, and business process optimization to eliminate manual work.</p>
+                </a>
+                <a href="pages/services.html#recreation" class="service-category-card">
+                    <div class="service-count">5+ Services</div>
+                    <div class="service-category-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Recreation Platform Optimization</h3>
+                    <p>Enhance your existing recreation management systems like PerfectMind, ActiveNet, and IntelliLeisure.</p>
+                </a>
+                <a href="pages/services.html#analytics" class="service-category-card">
+                    <div class="service-count">3+ Services</div>
+                    <div class="service-category-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Data Analytics & Insights</h3>
+                    <p>Transform operational data into actionable insights with custom dashboards and member engagement analytics.</p>
+                </a>
+                <a href="pages/services.html#security" class="service-category-card">
+                    <div class="service-count">3+ Services</div>
+                    <div class="service-category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security & Compliance</h3>
+                    <p>Comprehensive cybersecurity assessments, data privacy solutions, and secure infrastructure implementation.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Combined Bottom Section -->
+        <section class="bottom-combined-section">
+            <div class="combined-content">
+                <div class="stats-section">
+                    <h2>Trusted by Sport & Recreation Leaders</h2>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Organizations Transformed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Hours of Training Delivered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Client Satisfaction Rate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimon

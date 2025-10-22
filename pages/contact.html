@@ -3,75 +3,667 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact T-RECS Technical Recreation Solutions - Get in touch with our team">
+    <meta name="description" content="Contact T-RECS Technical Recreation Solutions - Get in touch with our Microsoft 365 experts for sport and recreation technology consulting.">
+    <meta name="keywords" content="contact T-RECS, recreation technology consulting, Microsoft 365 support, sport technology experts">
     <title>Contact Us - T-RECS Technical Recreation Solutions</title>
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d5f2e;
+            --secondary-green: #4a9e4a;
+            --light-green: #e8f5e9;
+            --dark-gray: #2c3e50;
+            --medium-gray: #546e7a;
+            --light-gray: #eceff1;
+            --white: #ffffff;
+            --accent-blue: #1976d2;
+            --success-green: #10b981;
+            --error-red: #ef4444;
+            --warning-yellow: #f59e0b;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e9 100%);
+        }
+
+        /* Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 65px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .brand-tagline {
+            font-size: 0.7rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-green);
+        }
+
+        .cta-button {
+            background: var(--secondary-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 158, 74, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 158, 74, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-green);
+            transition: 0.3s;
+        }
+
+        /* Main Container */
         .contact-container {
             max-width: 1200px;
             margin: 120px auto 50px;
             padding: 0 20px;
         }
 
-        .contact-grid {
-            margin-top: 50px;
+        /* Hero Section */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(45, 95, 46, 0.3);
         }
 
-        .contact-form {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 280px;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Contact Content Grid */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--light-green);
+        }
+
+        .contact-form-section h2 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .contact-form-section .subtitle {
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+            font-size: 1rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            color: #2c3e50;
-            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
             font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary-green);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(74, 158, 74, 0.1);
         }
 
         .form-group textarea {
-            height: 150px;
+            height: 120px;
             resize: vertical;
         }
 
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
         .submit-btn {
-            background-color: #3498db;
-            color: #fff;
-            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 15px 40px;
             border: none;
-            border-radius: 5px;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 158, 74, 0.3);
+            width: 100%;
         }
 
         .submit-btn:hover {
-            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 158, 74, 0.4);
         }
 
+        .submit-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Form Validation */
+        .error {
+            border-color: var(--error-red) !important;
+            background: #fef2f2 !important;
+        }
+
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        /* Contact Info */
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--light-green);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-info-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-info-card i {
+            font-size: 1.5rem;
+            color: var(--secondary-green);
+        }
+
+        .contact-info-card p {
+            color: var(--medium-gray);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .contact-info-card a {
+            color: var(--secondary-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info-card a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Business Hours */
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--medium-gray);
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-list .day {
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--light-green);
+            margin-bottom: 60px;
+        }
+
+        .faq-section h2 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #f1f5f9;
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            color: var(--secondary-green);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            color: var(--medium-gray);
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-green);
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid var(--secondary-green);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .contact-form {
-                margin: 0 20px;
+            .hamburger {
+                display: flex;
+            }
+
+            .logo-text .brand-name {
+                font-size: 1.2rem;
+            }
+
+            .logo-text .brand-tagline {
+                font-size: 0.6rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .contact-container {
+                padding: 0 15px;
+            }
+
+            .contact-hero {
+                padding: 40px 20px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-image img {
+                max-width: 200px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-form-section,
+            .faq-section {
+                padding: 25px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .contact-info-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero {
+                padding: 30px 15px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .contact-form-section,
+            .faq-section {
+                padding: 20px;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 12px 15px;
             }
         }
     </style>
@@ -79,102 +671,223 @@
 <body>
     <header class="navbar">
         <div class="logo">
-            <a href="../index.html"><img src="../images/cyber-trex.png.jpeg" alt="T-RECS Technical Recreation Solutions Logo" class="site-logo-img"></a>
+            <a href="../index.html">
+                <img src="../images/dino-soccer.png" alt="T-RECS Logo">
+            </a>
+            <div class="logo-text">
+                <span class="brand-name">T-RECS</span>
+                <span class="brand-tagline">Technical Recreation Solutions</span>
+            </div>
         </div>
-        <div class="hamburger">
+        <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <nav class="nav-links">
+        </button>
+        <nav class="nav-links" id="navLinks">
             <a href="services.html">Services</a>
             <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="cta-button">Get Started</a>
         </nav>
     </header>
 
     <main class="contact-container">
-        <h1>Get in Touch</h1>
-        <p>We'd love to hear from you. Please fill out the form below or use our contact information to reach us.</p>
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Let's Transform Your Organization Together</h1>
+                    <p>Ready to modernize your operations and enhance your community programs? Our experts are here to help you leverage Microsoft 365 and automation to achieve your goals.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="../images/dino-soccer.png" alt="T-RECS Mascot">
+                </div>
+            </div>
+        </section>
 
-        <div class="contact-grid">
-            <div class="contact-form">
-                <h3>Send us a Message</h3>
-                <form id="contactForm" onsubmit="return handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+        <!-- Contact Content -->
+        <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h2>Send Us a Message</h2>
+                <p class="subtitle">Tell us about your organization and how we can help you succeed.</p>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</span>
+                </div>
+
+                <form id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <div class="error-message" id="firstNameError">Please enter your first name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <div class="error-message" id="lastNameError">Please enter your last name</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="organization">Organization Name *</label>
+                            <input type="text" id="organization" name="organization" required>
+                            <div class="error-message" id="organizationError">Please enter your organization name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="orgType">Organization Type</label>
+                            <select id="orgType" name="orgType">
+                                <option value="">Select type...</option>
+                                <option value="municipal">Municipal Recreation</option>
+                                <option value="private">Private Recreation Center</option>
+                                <option value="sports-club">Sports Club/League</option>
+                                <option value="ymca">YMCA/Community Center</option>
+                                <option value="school">School/University</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <label for="subject">How Can We Help? *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic...</option>
+                            <option value="consultation">Schedule a Consultation</option>
+                            <option value="m365-deployment">Microsoft 365 Deployment</option>
+                            <option value="process-automation">Process Automation</option>
+                            <option value="platform-optimization">Recreation Platform Optimization</option>
+                            <option value="assessment">Technology Assessment</option>
+                            <option value="training">Staff Training</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message" id="subjectError">Please select a topic</div>
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+
+                    <div class="form-group">
+                        <label for="message">Tell Us More *</label>
+                        <textarea id="message" name="message" placeholder="Describe your current challenges, goals, or questions. The more details you provide, the better we can help you." required></textarea>
+                        <div class="error-message" id="messageError">Please provide some details about how we can help</div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="spinner" id="spinner"></span>
+                        <span id="submitText">Send Message</span>
+                    </button>
                 </form>
             </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-section">
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                    <p>Get in touch via email for detailed discussions</p>
+                    <a href="mailto:info@trecs-solutions.com">info@trecs-solutions.com</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+                    <p>Serving recreation organizations across North America</p>
+                    <p><strong>Based in:</strong> North Saanich, BC, Canada</p>
+                </div>
+
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-clock"></i> Response Time</h3>
+                    <ul class="hours-list">
+                        <li><span class="day">Initial Response:</span> <span>Within 24 hours</span></li>
+                        <li><span class="day">Consultation Calls:</span> <span>Mon-Fri, 9 AM - 5 PM PST</span></li>
+                        <li><span class="day">Emergency Support:</span> <span>Available for clients</span></li>
+                    </ul>
+                </div>
+
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-handshake"></i> What to Expect</h3>
+                    <p>• Personalized consultation call within 2 business days</p>
+                    <p>• No-obligation assessment of your needs</p>
+                    <p>• Clear proposal with timeline and pricing</p>
+                    <p>• Ongoing support throughout your journey</p>
+                </div>
+            </div>
         </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How quickly can you start working with our organization?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    We typically begin initial assessments within 1-2 weeks of our consultation call. Implementation timelines vary based on project scope, but most organizations see meaningful improvements within 30-90 days.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you work with organizations of all sizes?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes! We work with everything from small community centers to large municipal recreation departments. Our solutions are scalable and tailored to your specific needs and budget.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What if we're already using Microsoft 365?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Perfect! Many organizations are only using 10-20% of Microsoft 365's capabilities. We'll assess your current setup and unlock features that can dramatically improve your operations and staff productivity.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you provide ongoing support after implementation?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We offer flexible support packages including user training, system monitoring, and regular optimization reviews to ensure your technology continues to serve your organization effectively.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can you help us integrate with our existing recreation management software?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes! We have extensive experience with platforms like PerfectMind, ActiveNet, RecTrac, and others. We can optimize your current system and create seamless integrations with Microsoft 365 tools.
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Contact Us</h4>
+                <h4>T-RECS</h4>
+                <p>Technical Recreation Solutions</p>
+                <p>Microsoft 365 experts for sport and recreation organizations</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
                 <p><i class="fas fa-envelope"></i> info@trecs-solutions.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> North Saanich, BC</p>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 T-RECS Technical Recreation Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="../js/main.js"></script>
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-
-            // Here you would typically send the form data to your server
-            // For now, we'll just log it and show a success message
-            console.log('Form submitted:', formData);
-            alert('Thank you for your message! We will get back to you soon.');
-            
-            // Reset the form
-            event.target.reset();
-            
-            return false;
-        }
-    </script>
-</body>
-</html>
+                <p><i class="fas fa-map-marker-alt"></i>

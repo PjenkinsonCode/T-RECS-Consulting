@@ -3,287 +3,930 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About T-RECS Technical Recreation Solutions - Our Story, Team, and Values">
-    <title>About Us - T-RECS Technical Recreation Solutions</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta name="description" content="T-RECS Technical Recreation Solutions - Transforming sport and recreation organizations through strategic Microsoft 365 implementation and data-driven technology solutions.">
+    <title>About - T-RECS Technical Recreation Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .about-container {
-            max-width: 1200px;
-            margin: 120px auto 50px;
-            padding: 0 5%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
+        :root {
+            --primary-green: #2d5f2e;
+            --secondary-green: #4a9e4a;
+            --light-green: #e8f5e9;
+            --dark-gray: #2c3e50;
+            --medium-gray: #546e7a;
+            --light-gray: #eceff1;
+            --white: #ffffff;
+            --accent-blue: #1976d2;
+            --max-width: 1280px;
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 40px -10px rgb(0 0 0 / 0.15);
         }
 
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #2193f0;
-            margin-bottom: 15px;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Typography */
+        .h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .h4 {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .lead {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            line-height: 1.7;
+            color: var(--medium-gray);
+        }
+
+        .body-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--medium-gray);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 65px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .brand-tagline {
+            font-size: 0.7rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .section-title p {
-            color: #ffffff;
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-green);
+        }
+
+        .cta-button {
+            background: var(--secondary-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 158, 74, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 158, 74, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-green);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 120px auto 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(45, 95, 46, 0.3);
+            max-width: 1200px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-20px, -20px) rotate(120deg); }
+            66% { transform: translate(15px, -15px) rotate(240deg); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-text .tagline {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 280px;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            animation: heroFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         /* Story Section */
-        .story-section {
+        .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 4rem;
             align-items: center;
-            margin-bottom: 100px;
-            padding: 60px 0;
+            margin-top: 3rem;
         }
 
-        .story-content h2 {
-            color: #2193f0;
-            margin-bottom: 30px;
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+        .story-content {
+            animation: fadeInLeft 1s ease-out;
         }
 
-        .story-content p {
-            color: #ffffff;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            opacity: 0.9;
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .story-image {
-            border-radius: 15px;
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(33, 147, 240, 0.2);
-            border: 2px solid #2193f0;
         }
 
-        .story-image img {
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+        }
+
+        .stat-card:hover {
+            border-color: var(--light-green);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mission Cards */
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--light-green);
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary-green);
+        }
+
+        .mission-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--light-green);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--secondary-green);
+        }
+
+        /* Services Overview */
+        .services-overview {
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-category {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            transition: all 0.3s;
+            border: 2px solid var(--light-green);
+        }
+
+        .service-category:hover {
+            box-shadow: var(--shadow-xl);
+            transform: scale(1.02);
+            border-color: var(--secondary-green);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: var(--light-green);
+            color: var(--secondary-green);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         /* Values Section */
-        .values-section {
-            background: #000000;
-            padding: 80px 0;
-            margin: 80px 0;
-            border-radius: 15px;
-        }
-
-        .values-section .section-title h2 {
-            color: #ffffff;
-        }
-
-        .values-section .section-title p {
-            color: #cccccc;
-        }
-
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .value-card {
-            background: #ffffff;
-            padding: 40px 30px;
-            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            background: var(--white);
+            border: 2px solid var(--light-green);
+            transition: all 0.3s;
         }
 
         .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(33, 147, 240, 0.2);
-            border-color: #2193f0;
+            border-color: var(--secondary-green);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
 
         .value-icon {
-            width: 80px;
-            height: 80px;
-            background: #2193f0;
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--secondary-green) 30%, var(--primary-green) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            transition: transform 0.3s ease;
+            font-size: 2rem;
+            color: white;
+            box-shadow: var(--shadow-lg);
         }
 
-        .value-card:hover .value-icon {
-            transform: scale(1.1);
+        /* Why Choose Section */
+        .why-choose {
+            background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .value-icon i {
-            font-size: 35px;
-            color: #ffffff;
+        .why-choose::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
         }
 
-        .value-card h3 {
-            color: #000000;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+        .why-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .why-card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .why-card h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
         }
 
-        .values-section .value-card p {
-            color: #2193f0 !important;
+        .why-card p {
+            font-size: 0.95rem;
+            opacity: 0.95;
             line-height: 1.6;
-            opacity: 1;
         }
 
-        /* Team Section */
-        .team-section {
-            margin-bottom: 100px;
-        }
-
-        .team-grid {
+        /* Testimonial Section */
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .team-member {
-            background: #ffffff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
+        .testimonial {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 2px solid var(--light-green);
+            transition: all 0.3s;
         }
 
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(33, 147, 240, 0.2);
-            border-color: #2193f0;
+        .testimonial:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary-green);
         }
 
-        .member-image {
-            height: 350px;
-            overflow: hidden;
-            background: linear-gradient(45deg, #2193f0, #000000);
+        .testimonial-quote {
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            background: var(--secondary-green);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
         }
 
-        .member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin: 1rem 0 2rem 0;
+            font-style: italic;
         }
 
-        .team-member:hover .member-image img {
-            transform: scale(1.05);
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .member-info {
-            padding: 30px;
-            text-align: center;
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
-        .member-info h3 {
-            color: #000000;
-            margin-bottom: 8px;
-            font-size: 1.5rem;
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--primary-green);
+            margin-bottom: 0.25rem;
             font-weight: 600;
         }
 
-        .member-info .position {
-            color: #2193f0;
-            font-weight: 500;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+        .author-info p {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            margin: 0;
         }
 
-        .member-info p {
-            color: #666666;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-links a {
-            color: #666666;
-            font-size: 1.2rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #2193f0;
-            transform: scale(1.2);
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-                        url('../images/stats-bg.jpg') center/cover;
-            padding: 80px 0;
-            margin: 80px 0;
-            color: #fff;
-            border-radius: 15px;
-            border: 2px solid #2193f0;
-        }
-
-        .stats-grid {
+        /* Social Proof Stats */
+        .social-proof-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            gap: 2rem;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-xl);
+            color: white;
             text-align: center;
         }
 
-        .stat-item h3 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #2193f0;
-            font-weight: 700;
+        .stat-item {
+            padding: 1rem;
         }
 
-        .stat-item p {
-            font-size: 1.2rem;
+        .stat-item .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-item .stat-label {
+            font-size: 1rem;
             opacity: 0.9;
             font-weight: 500;
         }
 
+        /* CTA Section */
+        .final-cta {
+            background: var(--light-gray);
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--secondary-green);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid var(--light-green);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--secondary-green);
+            color: var(--secondary-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-green);
+            font-weight: 600;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .story-section {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .hamburger {
+                display: flex;
             }
 
-            .values-grid,
-            .team-grid,
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .logo-text .brand-name {
+                font-size: 1.2rem;
             }
 
-            .section-title h2 {
+            .logo-text .brand-tagline {
+                font-size: 0.6rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero {
+                padding: 40px 20px;
+                margin: 100px 10px 40px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-text h1 {
                 font-size: 2rem;
             }
 
-            .story-content h2 {
-                font-size: 1.8rem;
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-image img {
+                max-width: 200px;
+            }
+
+            .story-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .social-proof-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 2rem 1rem;
+            }
+
+            .stat-item .stat-number {
+                font-size: 2rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -291,145 +934,141 @@
 <body>
     <header class="navbar">
         <div class="logo">
-            <a href="../index.html"><img src="../images/cyber-trex.png.jpeg" alt="T-RECS Technical Recreation Solutions Logo" class="site-logo-img"></a>
+            <a href="../index.html">
+                <img src="../images/dino-soccer.png" alt="T-RECS Logo">
+            </a>
+            <div class="logo-text">
+                <span class="brand-name">T-RECS</span>
+                <span class="brand-tagline">Technical Recreation Solutions</span>
+            </div>
         </div>
-        <div class="hamburger">
+        <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <nav class="nav-links">
+        </button>
+        <nav class="nav-links" id="navLinks">
             <a href="services.html">Services</a>
             <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="cta-button">Get Started</a>
         </nav>
     </header>
 
-    <main class="about-container">
-        <section class="story-section">
-            <div class="story-content">
-                <h2>Our Story</h2>
-                <p>Founded in 2025 by Paiden Jenkinson, "T-RECS" Technical Recreation Solutions is a new and innovative business advisory firm. Our journey begins with a clear mission: to help businesses navigate change and achieve sustainable growth.</p>
-                <p>As a fresh voice in the consulting industry, we bring a unique perspective and modern approach to business strategy. We're committed to understanding each client's unique challenges and opportunities, developing tailored strategies that drive real, measurable results.</p>
-                <p>What sets us apart is our commitment to building long-term relationships with our clients. We don't believe in one-size-fits-all solutions. Instead, we work closely with you to develop customized strategies that align with your specific goals and vision.</p>
-            </div>
-            <div class="story-image">
-                <img src="../images/cyber-trex.png.jpeg" alt="T-RECS Cyber T-Rex Mascot">
-            </div>
-        </section>
-
-        <section class="values-section">
-            <div class="section-title">
-                <h2>Our Values</h2>
-                <p>The principles that guide everything we do</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Integrity</h3>
-                    <p>We believe in honest, transparent relationships with our clients and partners, building trust through every interaction.</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="tagline">Est. 2025</div>
+                    <h1>Transforming Recreation Through Technology</h1>
+                    <p>We're on a mission to empower sport and recreation organizations with cutting-edge Microsoft 365 solutions and data-driven insights that enhance community engagement and operational excellence.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We constantly seek new ways to solve complex business challenges, embracing cutting-edge technology and creative solutions.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Collaboration</h3>
-                    <p>We work together with our clients to achieve shared success, fostering partnerships that drive mutual growth.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>We strive for the highest quality in everything we do, delivering results that exceed expectations.</p>
+                <div class="hero-image">
+                    <img src="../images/dino-soccer.png" alt="T-RECS Mascot">
                 </div>
             </div>
         </section>
 
-        <section class="team-section">
-            <div class="section-title">
-                <h2>Our Leadership</h2>
-                <p>Meet the founder behind our vision</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="../images/cyber-trex.png.jpeg" alt="Paiden Jenkinson - T-RECS Founder">
+        <!-- Story Section -->
+        <section class="section">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h2 class="h2">Built for Recreation, Powered by Innovation</h2>
+                        <p class="body-text" style="margin: 1.5rem 0;">T-RECS was founded with a clear vision: recreation organizations deserve technology partners who understand their unique challenges. We saw facilities struggling with disconnected systems, manual processes eating up valuable time, and missed opportunities to better serve their communities.</p>
+                        <p class="body-text">Today, we're the trusted technology partner for recreation organizations across North America, combining deep industry knowledge with Microsoft expertise to deliver transformative solutions.</p>
                     </div>
-                    <div class="member-info">
-                        <h3>Paiden Jenkinson</h3>
-                        <p class="position">Founder & CEO</p>
-                        <p>Passionate about helping businesses grow and succeed through strategic consulting and innovative solutions. With a vision for modern business transformation, Paiden leads T-RECS with dedication to client success and technological advancement.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
+                    <div class="story-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Recreation Focused</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">365</div>
+                            <div class="stat-label">Days of Support</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Solutions Delivered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Process Automation</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>2025</h3>
-                    <p>Founded</p>
+        <!-- Mission Section -->
+        <section class="section" style="background: var(--light-gray);">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+                    <h2 class="h2">Our Mission</h2>
+                    <p class="lead" style="margin-top: 1.5rem;">Empowering recreation organizations to focus on what matters most – building stronger, healthier communities.</p>
                 </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Client Focus</p>
-                </div>
-                <div class="stat-item">
-                    <h3>1</h3>
-                    <p>Dedicated Team</p>
-                </div>
-                <div class="stat-item">
-                    <h3>∞</h3>
-                    <p>Growth Potential</p>
+                <div class="mission-cards">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="h4">Data-Driven Decisions</h3>
+                        <p class="body-text">Transform operational data into actionable insights that improve member satisfaction, optimize resource allocation, and drive strategic growth.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="h4">Intelligent Automation</h3>
+                        <p class="body-text">Eliminate manual tasks and streamline workflows through Power Platform solutions, freeing your team to focus on community engagement.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="h4">Security First</h3>
+                        <p class="body-text">Protect member data and ensure compliance with comprehensive security frameworks designed specifically for recreation organizations.</p>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-envelope"></i> info@trecs-solutions.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> North Saanich, BC</p>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+        <!-- Values Section -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="h2">Our Values</h2>
+                    <p class="lead" style="margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">The principles that guide everything we do</p>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="h4">Community First</h3>
+                        <p class="body-text">Every solution we design prioritizes the needs of your community members and staff.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="h4">Innovation</h3>
+                        <p class="body-text">We stay at the forefront of technology to bring you cutting-edge solutions.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="h4">Partnership</h3>
+                        <p class="body-text">We work alongside your team as trusted partners, not just vendors.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="h4">Results</h3>
+                        <p class="body-text">We measure success by the tangible impact on your operations and community.</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 T-RECS Technical Recreation Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="../js/main.js"></script>
-</body>
-</html>
+        </section>

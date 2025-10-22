@@ -1,0 +1,41 @@
+{
+  "name": "T-RECS Technical Recreation Solutions",
+  "short_name": "T-RECS",
+  "description": "Professional Business Consulting Services specializing in Microsoft 365, Teams, SharePoint, and Power Platform solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#4a9e4a",
+  "theme_color": "#4a9e4a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "productivity", "technology"],
+  "icons": [
+    {
+      "src": "images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshot-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
