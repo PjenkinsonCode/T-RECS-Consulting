@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact T-RECS Technical Recreation Solutions - Get in touch with our Microsoft 365 experts for sport and recreation technology consulting.">
-    <meta name="keywords" content="contact T-RECS, recreation technology consulting, Microsoft 365 support, sport technology experts">
-    <title>Contact Us - T-RECS Technical Recreation Solutions</title>
+    <meta name="description" content="Contact T-RECS Technical Recreation Solutions">
+    <title>Contact Us - T-RECS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
             --primary-green: #2d5f2e;
             --secondary-green: #4a9e4a;
@@ -22,22 +17,16 @@
             --dark-gray: #2c3e50;
             --medium-gray: #546e7a;
             --light-gray: #eceff1;
-            --white: #ffffff;
-            --accent-blue: #1976d2;
-            --success-green: #10b981;
-            --error-red: #ef4444;
-            --warning-yellow: #f59e0b;
         }
-
+        
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--dark-gray);
             line-height: 1.6;
-            overflow-x: hidden;
             background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e9 100%);
         }
-
-        /* Header */
+        
+        /* Navigation - Same as services page */
         .navbar {
             position: fixed;
             top: 0;
@@ -50,63 +39,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo img {
-            height: 65px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo img:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .logo-text .brand-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-green);
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text .brand-tagline {
-            font-size: 0.7rem;
-            color: var(--medium-gray);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--dark-gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-green);
-        }
-
+        
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo img { height: 65px; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .logo-text .brand-name { font-size: 1.5rem; font-weight: 800; color: var(--primary-green); }
+        .logo-text .brand-tagline { font-size: 0.7rem; color: var(--medium-gray); text-transform: uppercase; }
+        
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--dark-gray); text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: var(--secondary-green); }
+        
         .cta-button {
             background: var(--secondary-green);
             color: white;
@@ -114,557 +58,378 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(74, 158, 74, 0.3);
         }
-
-        .cta-button:hover {
-            background: var(--primary-green);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 158, 74, 0.4);
+        
+        /* Cart Icon and Dropdown - Same as services */
+        .cart-icon-wrapper { position: relative; cursor: pointer; padding: 0.5rem; }
+        .cart-icon-wrapper i { font-size: 1.5rem; color: var(--dark-gray); }
+        .cart-count {
+            position: absolute; top: 0; right: 0;
+            background: var(--secondary-green);
+            color: white; border-radius: 50%;
+            width: 20px; height: 20px;
+            display: none; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700;
         }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
+        .cart-count.show { display: flex; }
+        
+        .cart-dropdown {
+            position: absolute; top: 100%; right: 0; margin-top: 10px;
+            background: white; border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            width: 400px; max-height: 500px; overflow-y: auto;
+            display: none; z-index: 2000;
         }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary-green);
-            transition: 0.3s;
+        .cart-dropdown.show { display: block; }
+        
+        .cart-dropdown-empty { padding: 40px 20px; text-align: center; }
+        .cart-dropdown-empty i { font-size: 3rem; color: var(--light-gray); margin-bottom: 15px; }
+        .cart-dropdown-empty p { color: var(--medium-gray); margin-bottom: 20px; }
+        
+        .browse-services-btn {
+            display: inline-block; background: var(--secondary-green);
+            color: white; padding: 10px 20px; border-radius: 8px;
+            text-decoration: none; font-weight: 600;
         }
-
-        /* Main Container */
-        .contact-container {
-            max-width: 1200px;
-            margin: 120px auto 50px;
-            padding: 0 20px;
+        
+        .cart-dropdown-item {
+            padding: 15px; border-bottom: 1px solid var(--light-gray);
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        /* Hero Section */
+        
+        .cart-dropdown-item-info h4 { font-size: 0.95rem; color: var(--dark-gray); margin-bottom: 5px; }
+        .cart-dropdown-item-category { font-size: 0.8rem; color: var(--medium-gray); }
+        
+        .cart-dropdown-remove {
+            background: none; border: none; color: #ef4444;
+            cursor: pointer; font-size: 1.1rem;
+        }
+        
+        .cart-dropdown-footer {
+            padding: 15px; border-top: 2px solid var(--light-gray);
+            display: flex; gap: 10px;
+        }
+        
+        .cart-dropdown-clear {
+            flex: 1; background: var(--light-gray); color: var(--dark-gray);
+            border: none; padding: 10px; border-radius: 8px;
+            font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif;
+        }
+        
+        .cart-dropdown-checkout {
+            flex: 1; background: var(--secondary-green); color: white;
+            padding: 10px; border-radius: 8px; font-weight: 600;
+            text-align: center; text-decoration: none; font-family: 'Poppins', sans-serif;
+        }
+        
+        .hamburger { display: none; }
+        
+        /* Main Content */
+        .contact-container { max-width: 1200px; margin: 120px auto 50px; padding: 0 20px; }
+        
         .contact-hero {
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
+            border-radius: 20px; padding: 60px 40px; margin-bottom: 60px;
             box-shadow: 0 10px 40px rgba(45, 95, 46, 0.3);
         }
-
-        .contact-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .contact-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .hero-text p {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.7;
-            margin-bottom: 0;
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            max-width: 280px;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
-            animation: float 3s ease-in-out infinite;
-        }
-
+        
+        .hero-content { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: center; }
+        .hero-text h1 { font-size: 3rem; color: white; margin-bottom: 20px; font-weight: 800; }
+        .hero-text p { font-size: 1.15rem; color: rgba(255, 255, 255, 0.95); }
+        
+        .hero-image { display: flex; justify-content: center; }
+        .hero-image img { max-width: 280px; animation: float 3s ease-in-out infinite; }
+        
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
-
-        /* Contact Content Grid */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
+        
         /* Contact Form */
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        
         .contact-form-section {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
+            background: white; padding: 40px; border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--light-green);
         }
-
-        .contact-form-section h2 {
-            font-size: 2rem;
-            color: var(--primary-green);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .contact-form-section .subtitle {
-            color: var(--medium-gray);
-            margin-bottom: 30px;
-            font-size: 1rem;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--dark-gray);
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
+        
+        .contact-form-section h2 { font-size: 2rem; color: var(--primary-green); margin-bottom: 10px; }
+        .contact-form-section .subtitle { color: var(--medium-gray); margin-bottom: 30px; }
+        
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        
         .form-group input,
         .form-group textarea,
         .form-group select {
-            width: 100%;
-            padding: 15px 18px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #fafbfc;
+            width: 100%; padding: 15px 18px; border: 2px solid #e2e8f0;
+            border-radius: 12px; font-family: 'Poppins', sans-serif;
+            font-size: 1rem; background: #fafbfc;
         }
-
+        
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            outline: none;
-            border-color: var(--secondary-green);
+            outline: none; border-color: var(--secondary-green);
+            background: white; box-shadow: 0 0 0 3px rgba(74, 158, 74, 0.1);
+        }
+        
+        .form-group textarea { height: 120px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        /* Services Display in Form */
+        .services-display-container {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: #fafbfc;
+            min-height: 120px;
+            padding: 15px;
+        }
+        
+        .no-services-message {
+            text-align: center;
+            padding: 20px;
+            color: var(--medium-gray);
+        }
+        
+        .no-services-message i {
+            font-size: 2rem;
+            color: var(--light-gray);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .no-services-message p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .browse-services-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary-green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .browse-services-link:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+        }
+        
+        .selected-services-list {
+            display: none;
+        }
+        
+        .selected-services-list.show {
+            display: block;
+        }
+        
+        .form-service-item {
             background: white;
-            box-shadow: 0 0 0 3px rgba(74, 158, 74, 0.1);
+            border: 2px solid var(--light-green);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
         }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
+        
+        .form-service-item:hover {
+            border-color: var(--secondary-green);
+            box-shadow: 0 2px 8px rgba(74, 158, 74, 0.15);
         }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        
+        .form-service-item:last-child {
+            margin-bottom: 0;
         }
+        
+        .form-service-info h4 {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+        
+        .form-service-category {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+        }
+        
+        .form-service-remove {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 5px 8px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .form-service-remove:hover {
+            transform: scale(1.2);
+            color: #dc2626;
+        }
+        
+        .browse-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--secondary-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .browse-more-link:hover {
+            background: var(--light-green);
+        }
+        
 
         .submit-btn {
             background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
+            color: white; padding: 15px 40px; border: none;
+            border-radius: 12px; cursor: pointer; font-size: 1.1rem;
+            font-weight: 600; font-family: 'Poppins', sans-serif;
             box-shadow: 0 4px 15px rgba(74, 158, 74, 0.3);
             width: 100%;
         }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 158, 74, 0.4);
-        }
-
-        .submit-btn:disabled {
-            background: #94a3b8;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        /* Form Validation */
-        .error {
-            border-color: var(--error-red) !important;
-            background: #fef2f2 !important;
-        }
-
-        .error-message {
-            color: var(--error-red);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .success-message {
-            background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
+        
+        .submit-btn:hover { transform: translateY(-2px); }
+        
+        .error { border-color: #ef4444 !important; background: #fef2f2 !important; }
+        .error-message { color: #ef4444; font-size: 0.85rem; margin-top: 5px; display: none; }
+        
+        /* Restore Notice */
+        .restore-notice {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 12px 18px;
+            border-radius: 8px;
             margin-bottom: 20px;
-            display: none;
+            display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 500;
+            color: #1565c0;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
         }
-
+        
+        .restore-notice i {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        /* Helper Text */
+        .helper-text {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            margin-top: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* Success Modal */
+        .success-modal {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);
+            z-index: 2000; align-items: center; justify-content: center;
+        }
+        .success-modal.show { display: flex; }
+        
+        .success-modal-content {
+            background: white; border-radius: 20px; padding: 40px;
+            max-width: 500px; text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .success-icon {
+            width: 80px; height: 80px; background: #10b981;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 20px;
+            color: white; font-size: 2.5rem;
+        }
+        
+        .success-modal-content h2 { color: var(--primary-green); margin-bottom: 15px; }
+        .success-modal-content p { color: var(--medium-gray); margin-bottom: 25px; }
+        
+        .close-success-btn {
+            background: var(--secondary-green); color: white;
+            padding: 12px 30px; border: none; border-radius: 10px;
+            cursor: pointer; font-weight: 600; font-family: 'Poppins', sans-serif;
+        }
+        
         /* Contact Info */
-        .contact-info-section {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
+        .contact-info-section { display: flex; flex-direction: column; gap: 30px; }
+        
         .contact-info-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
+            background: white; padding: 30px; border-radius: 20px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             border: 2px solid var(--light-green);
-            transition: all 0.3s ease;
         }
-
-        .contact-info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
-        }
-
+        
         .contact-info-card h3 {
-            color: var(--primary-green);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            color: var(--primary-green); margin-bottom: 15px;
+            font-size: 1.3rem; display: flex; align-items: center; gap: 12px;
         }
-
-        .contact-info-card i {
-            font-size: 1.5rem;
-            color: var(--secondary-green);
-        }
-
-        .contact-info-card p {
-            color: var(--medium-gray);
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .contact-info-card a {
-            color: var(--secondary-green);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info-card a:hover {
-            color: var(--primary-green);
-        }
-
-        /* Business Hours */
-        .hours-list {
-            list-style: none;
-            padding: 0;
-        }
-
+        
+        .contact-info-card i { font-size: 1.5rem; color: var(--secondary-green); }
+        .contact-info-card p { color: var(--medium-gray); margin-bottom: 10px; }
+        .contact-info-card a { color: var(--secondary-green); text-decoration: none; font-weight: 500; }
+        
+        .hours-list { list-style: none; padding: 0; }
         .hours-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #f1f5f9;
+            display: flex; justify-content: space-between;
+            padding: 8px 0; border-bottom: 1px solid #f1f5f9;
             color: var(--medium-gray);
         }
-
-        .hours-list li:last-child {
-            border-bottom: none;
-        }
-
-        .hours-list .day {
-            font-weight: 500;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border: 2px solid var(--light-green);
-            margin-bottom: 60px;
-        }
-
-        .faq-section h2 {
-            font-size: 2rem;
-            color: var(--primary-green);
-            margin-bottom: 30px;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid #f1f5f9;
-            padding: 20px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-
-        .faq-question:hover {
-            color: var(--secondary-green);
-        }
-
-        .faq-question i {
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            color: var(--medium-gray);
-            line-height: 1.7;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-answer.active {
-            max-height: 200px;
-            padding-top: 10px;
-        }
-
+        .hours-list li:last-child { border-bottom: none; }
+        
         /* Footer */
-        footer {
-            background: var(--dark-gray);
-            color: white;
-            padding: 60px 5% 30px;
-        }
-
+        footer { background: var(--dark-gray); color: white; padding: 60px 5% 30px; }
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem; margin-bottom: 3rem;
         }
-
-        .footer-section h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-green);
-        }
-
+        .footer-section h4 { font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--secondary-green); }
         .footer-section p, .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.75rem;
-            transition: color 0.3s ease;
+            color: rgba(255, 255, 255, 0.8); text-decoration: none;
+            display: block; margin-bottom: 0.75rem;
         }
-
-        .footer-section a:hover {
-            color: var(--secondary-green);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
+        
+        .social-links { display: flex; gap: 1rem; }
         .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
+            width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 1.2rem;
         }
-
-        .social-links a:hover {
-            background: var(--secondary-green);
-            transform: translateY(-3px);
-        }
-
+        
         .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
+            text-align: center; padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
         }
-
-        /* Loading Spinner */
-        .spinner {
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid var(--secondary-green);
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            display: none;
-            margin-right: 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design */
+        
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .logo-text .brand-name {
-                font-size: 1.2rem;
-            }
-
-            .logo-text .brand-tagline {
-                font-size: 0.6rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                flex-direction: column;
-                background: white;
-                width: 100%;
-                padding: 2rem;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                transition: left 0.3s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .contact-container {
-                padding: 0 15px;
-            }
-
-            .contact-hero {
-                padding: 40px 20px;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .hero-text p {
-                font-size: 1rem;
-            }
-
-            .hero-image img {
-                max-width: 200px;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .contact-form-section,
-            .faq-section {
-                padding: 25px;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .contact-info-card {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .contact-hero {
-                padding: 30px 15px;
-            }
-
-            .hero-text h1 {
-                font-size: 1.75rem;
-            }
-
-            .contact-form-section,
-            .faq-section {
-                padding: 20px;
-            }
-
-            .form-group input,
-            .form-group textarea,
-            .form-group select {
-                padding: 12px 15px;
-            }
+            .hero-content, .contact-content, .form-row { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2rem; }
+            .cart-dropdown { width: 90vw; right: 5vw; }
         }
     </style>
 </head>
@@ -678,7 +443,7 @@
                 <span class="brand-name">T-RECS</span>
                 <span class="brand-tagline">Technical Recreation Solutions</span>
             </div>
-        </div>
+         </div>
         <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -687,12 +452,19 @@
         <nav class="nav-links" id="navLinks">
             <a href="services.html">Services</a>
             <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <div class="cart-icon-wrapper" onclick="toggleCartDropdown(event)">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+                <div class="cart-dropdown" id="cartDropdown">
+                    <!-- Cart items will be inserted here -->
+                </div>
+            </div>
             <a href="contact.html" class="cta-button">Get Started</a>
         </nav>
     </header>
 
     <main class="contact-container">
-        <!-- Hero Section -->
         <section class="contact-hero">
             <div class="hero-content">
                 <div class="hero-text">
@@ -705,19 +477,21 @@
             </div>
         </section>
 
-        <!-- Contact Content -->
+        <div class="success-modal" id="successModal">
+            <div class="success-modal-content">
+                <div class="success-icon"><i class="fas fa-check"></i></div>
+                <h2>Message Sent Successfully!</h2>
+                <p>Thank you for contacting T-RECS. We've received your inquiry and will get back to you within 24 hours.</p>
+                <button class="close-success-btn" onclick="closeSuccessModal()">Close</button>
+            </div>
+        </div>
+
         <div class="contact-content">
-            <!-- Contact Form -->
             <div class="contact-form-section">
                 <h2>Send Us a Message</h2>
                 <p class="subtitle">Tell us about your organization and how we can help you succeed.</p>
-                
-                <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</span>
-                </div>
 
-                <form id="contactForm" novalidate>
+                <form id="contactForm" action="https://formspree.io/f/xdkynzqz" method="POST" novalidate>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name *</label>
@@ -731,153 +505,79 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                            <div class="error-message" id="emailError">Please enter a valid email address</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="organization">Organization Name *</label>
-                            <input type="text" id="organization" name="organization" required>
-                            <div class="error-message" id="organizationError">Please enter your organization name</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="orgType">Organization Type</label>
-                            <select id="orgType" name="orgType">
-                                <option value="">Select type...</option>
-                                <option value="municipal">Municipal Recreation</option>
-                                <option value="private">Private Recreation Center</option>
-                                <option value="sports-club">Sports Club/League</option>
-                                <option value="ymca">YMCA/Community Center</option>
-                                <option value="school">School/University</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="subject">How Can We Help? *</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a topic...</option>
-                            <option value="consultation">Schedule a Consultation</option>
-                            <option value="m365-deployment">Microsoft 365 Deployment</option>
-                            <option value="process-automation">Process Automation</option>
-                            <option value="platform-optimization">Recreation Platform Optimization</option>
-                            <option value="assessment">Technology Assessment</option>
-                            <option value="training">Staff Training</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="error-message" id="subjectError">Please select a topic</div>
+                        <label for="organization">Organization Name *</label>
+                        <input type="text" id="organization" name="organization" required>
+                        <div class="error-message" id="organizationError">Please enter your organization name</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectedServicesDisplay">Services You're Interested In</label>
+                        <div class="services-display-container" id="servicesDisplayContainer">
+                            <div class="no-services-message" id="noServicesMessage">
+                                <i class="fas fa-info-circle"></i>
+                                <p>No services selected yet.</p>
+                                <a href="services.html" class="browse-services-link">
+                                    <i class="fas fa-arrow-right"></i> Browse Our Services
+                                </a>
+                            </div>
+                            <div class="selected-services-list" id="formSelectedServicesList"></div>
+                        </div>
+                        <input type="hidden" id="servicesForSubmission" name="services" value="">
                     </div>
 
                     <div class="form-group">
                         <label for="message">Tell Us More *</label>
-                        <textarea id="message" name="message" placeholder="Describe your current challenges, goals, or questions. The more details you provide, the better we can help you." required></textarea>
-                        <div class="error-message" id="messageError">Please provide some details about how we can help</div>
+                        <textarea id="message" name="message" placeholder="Describe your current challenges, goals, or questions..." required></textarea>
+                        <div class="error-message" id="messageError">Please provide some details</div>
                     </div>
 
+                    <input type="hidden" name="_subject" value="New T-RECS Contact Form Submission">
+
                     <button type="submit" class="submit-btn" id="submitBtn">
-                        <span class="spinner" id="spinner"></span>
                         <span id="submitText">Send Message</span>
                     </button>
                 </form>
             </div>
 
-            <!-- Contact Information -->
             <div class="contact-info-section">
                 <div class="contact-info-card">
                     <h3><i class="fas fa-envelope"></i> Email Us</h3>
                     <p>Get in touch via email for detailed discussions</p>
-                    <a href="mailto:info@trecs-solutions.com">info@trecs-solutions.com</a>
+                    <a href="mailto:info@t-recs.ca">info@t-recs.ca</a>
+                    <p>Contact our founder:</p>
+                    <a href="mailto:Paiden.Jenkinson@t-recs.ca">Paiden.Jenkinson@t-recs.ca</a>
                 </div>
 
                 <div class="contact-info-card">
                     <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
-                    <p>Serving recreation organizations across North America</p>
                     <p><strong>Based in:</strong> North Saanich, BC, Canada</p>
                 </div>
 
                 <div class="contact-info-card">
                     <h3><i class="fas fa-clock"></i> Response Time</h3>
                     <ul class="hours-list">
-                        <li><span class="day">Initial Response:</span> <span>Within 24 hours</span></li>
-                        <li><span class="day">Consultation Calls:</span> <span>Mon-Fri, 9 AM - 5 PM PST</span></li>
-                        <li><span class="day">Emergency Support:</span> <span>Available for clients</span></li>
+                        <li><span>Initial Response:</span> <span>Within 24 hours</span></li>
+                        <li><span>Consultation Calls:</span> <span>Available for clients</span></li>
+                        <li><span>Emergency Support:</span> <span>Available for clients</span></li>
                     </ul>
                 </div>
 
                 <div class="contact-info-card">
                     <h3><i class="fas fa-handshake"></i> What to Expect</h3>
-                    <p>• Personalized consultation call within 2 business days</p>
+                    <p>• Personalized initial consultation call</p>
                     <p>• No-obligation assessment of your needs</p>
                     <p>• Clear proposal with timeline and pricing</p>
                     <p>• Ongoing support throughout your journey</p>
                 </div>
             </div>
         </div>
-
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>How quickly can you start working with our organization?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    We typically begin initial assessments within 1-2 weeks of our consultation call. Implementation timelines vary based on project scope, but most organizations see meaningful improvements within 30-90 days.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>Do you work with organizations of all sizes?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Yes! We work with everything from small community centers to large municipal recreation departments. Our solutions are scalable and tailored to your specific needs and budget.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>What if we're already using Microsoft 365?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Perfect! Many organizations are only using 10-20% of Microsoft 365's capabilities. We'll assess your current setup and unlock features that can dramatically improve your operations and staff productivity.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>Do you provide ongoing support after implementation?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Absolutely. We offer flexible support packages including user training, system monitoring, and regular optimization reviews to ensure your technology continues to serve your organization effectively.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>Can you help us integrate with our existing recreation management software?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Yes! We have extensive experience with platforms like PerfectMind, ActiveNet, RecTrac, and others. We can optimize your current system and create seamless integrations with Microsoft 365 tools.
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -885,9 +585,245 @@
             <div class="footer-section">
                 <h4>T-RECS</h4>
                 <p>Technical Recreation Solutions</p>
-                <p>Microsoft 365 experts for sport and recreation organizations</p>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p><i class="fas fa-envelope"></i> info@trecs-solutions.com</p>
-                <p><i class="fas fa-map-marker-alt"></i>
+                <p><i class="fas fa-envelope"></i> info@t-recs.ca</p>
+                <p><i class="fas fa-map-marker-alt"></i> North Saanich, BC</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 T-RECS Technical Recreation Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/cart.js"></script>
+    <script>
+        function displaySelectedServices() {
+            const cart = getCart();
+            const noServicesMessage = document.getElementById('noServicesMessage');
+            const servicesList = document.getElementById('formSelectedServicesList');
+            
+            if (cart.length > 0) {
+                noServicesMessage.style.display = 'none';
+                servicesList.classList.add('show');
+                servicesList.innerHTML = cart.map((item, index) => `
+                    <div class="form-service-item">
+                        <div class="form-service-info">
+                            <h4>${item.name}</h4>
+                            <div class="form-service-category">${item.category}</div>
+                        </div>
+                        <button type="button" class="form-service-remove" onclick="removeFromFormDisplay('${item.name}', '${item.category}')" title="Remove service">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `).join('') + `
+                    <a href="services.html" class="browse-more-link">
+                        <i class="fas fa-plus"></i> Add More Services
+                    </a>
+                    <p class="helper-text" style="text-align: center; margin-top: 8px;">Your form data is automatically saved</p>
+                `;
+                
+                // Update hidden field with service names for form submission
+                const serviceNames = cart.map(item => `${item.name} (${item.category})`).join(', ');
+                document.getElementById('servicesForSubmission').value = serviceNames;
+            } else {
+                noServicesMessage.style.display = 'block';
+                servicesList.classList.remove('show');
+                servicesList.innerHTML = '';
+                document.getElementById('servicesForSubmission').value = '';
+            }
+        }
+        
+        function removeFromFormDisplay(serviceName, serviceCategory) {
+            // Get current cart
+            let cart = getCart();
+            
+            // Filter out the service to remove
+            cart = cart.filter(item => !(item.name === serviceName && item.category === serviceCategory));
+            
+            // Save updated cart
+            localStorage.setItem('trecsCart', JSON.stringify(cart));
+            
+            // Update both displays
+            displaySelectedServices();
+            updateCartUI();
+        }
+
+        function validateForm() {
+            let isValid = true;
+            const fields = ['firstName', 'lastName', 'email', 'organization', 'message'];
+            
+            fields.forEach(field => {
+                const input = document.getElementById(field);
+                const error = document.getElementById(field + 'Error');
+                
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    if (error) error.style.display = 'block';
+                    isValid = false;
+                } else {
+                    input.classList.remove('error');
+                    if (error) error.style.display = 'none';
+                }
+            });
+            
+            const email = document.getElementById('email');
+            if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.classList.add('error');
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('show');
+        }
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize displays
+            displaySelectedServices();
+            updateCartUI();
+            restoreFormData();
+            setupAutoSave();
+            
+            // Setup form submission handler
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', handleFormSubmit);
+            }
+        });
+        
+        // Handle form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) return;
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            
+            // Actually submit the form to Formspree
+            const formData = new FormData(e.target);
+            
+            fetch(e.target.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    clearFormDraft(); // Clear saved form data
+                    localStorage.removeItem('trecsCart');
+                    document.getElementById('successModal').classList.add('show');
+                    e.target.reset();
+                    displaySelectedServices();
+                    updateCartUI();
+                } else {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Form submission failed');
+                    });
+                }
+            })
+            .catch(error => {
+                alert('Oops! There was a problem submitting your form. Please try again or email us directly at info@t-recs.ca');
+                console.error('Form submission error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+            });
+        }
+        
+        // Restore form data from localStorage
+        function restoreFormData() {
+            const savedData = localStorage.getItem('trecsFormDraft');
+            if (savedData) {
+                try {
+                    const formData = JSON.parse(savedData);
+                    
+                    // Restore each field
+                    if (formData.firstName) document.getElementById('firstName').value = formData.firstName;
+                    if (formData.lastName) document.getElementById('lastName').value = formData.lastName;
+                    if (formData.email) document.getElementById('email').value = formData.email;
+                    if (formData.organization) document.getElementById('organization').value = formData.organization;
+                    if (formData.message) document.getElementById('message').value = formData.message;
+                    
+                    // Show subtle indicator that data was restored
+                    const restoreNotice = document.createElement('div');
+                    restoreNotice.className = 'restore-notice';
+                    restoreNotice.innerHTML = '<i class="fas fa-info-circle"></i> Your previously entered information has been restored';
+                    document.querySelector('.contact-form-section').insertBefore(restoreNotice, document.getElementById('contactForm'));
+                    
+                    setTimeout(() => {
+                        restoreNotice.style.opacity = '0';
+                        setTimeout(() => restoreNotice.remove(), 300);
+                    }, 4000);
+                } catch (e) {
+                    console.error('Error restoring form data:', e);
+                }
+            }
+        }
+        
+        // Auto-save form data as user types
+        function setupAutoSave() {
+            const formFields = ['firstName', 'lastName', 'email', 'organization', 'message'];
+            
+            formFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('input', debounce(saveFormData, 500));
+                }
+            });
+        }
+        
+        // Save current form data to localStorage
+        function saveFormData() {
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                organization: document.getElementById('organization').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            localStorage.setItem('trecsFormDraft', JSON.stringify(formData));
+        }
+        
+        // Debounce function to limit save frequency
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Clear form draft after successful submission
+        function clearFormDraft() {
+            localStorage.removeItem('trecsFormDraft');
+        }
+    </script>
+</body>
+</html>

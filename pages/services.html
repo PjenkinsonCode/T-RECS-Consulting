@@ -122,25 +122,207 @@
             box-shadow: 0 6px 20px rgba(74, 158, 74, 0.4);
         }
 
-        .cta-button-small {
+        /* Cart Icon and Dropdown */
+        .cart-icon-wrapper {
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon-wrapper:hover i {
+            color: var(--secondary-green);
+        }
+
+        .cart-icon-wrapper i {
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            transition: color 0.3s ease;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
             background: var(--secondary-green);
             color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .cart-count.show {
+            display: flex;
+        }
+
+        /* Cart Dropdown */
+        .cart-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 10px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            width: 400px;
+            max-height: 500px;
+            overflow-y: auto;
+            display: none;
+            z-index: 2000;
+        }
+
+        .cart-dropdown.show {
+            display: block;
+        }
+
+        .cart-dropdown-empty {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .cart-dropdown-empty i {
+            font-size: 3rem;
+            color: var(--light-gray);
+            margin-bottom: 15px;
+        }
+
+        .cart-dropdown-empty p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        .browse-services-btn {
+            display: inline-block;
+            background: var(--secondary-green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(74, 158, 74, 0.25);
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: inline-block;
         }
 
-        .cta-button-small:hover {
+        .browse-services-btn:hover {
             background: var(--primary-green);
             transform: translateY(-2px);
+        }
+
+        .cart-dropdown-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-dropdown-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .cart-dropdown-item-info h4 {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .cart-dropdown-item-category {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+        }
+
+        .cart-dropdown-remove {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 5px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .cart-dropdown-remove:hover {
+            transform: scale(1.2);
+        }
+
+        .cart-dropdown-footer {
+            padding: 15px;
+            border-top: 2px solid var(--light-gray);
+            display: flex;
+            gap: 10px;
+        }
+
+        .cart-dropdown-clear {
+            flex: 1;
+            background: var(--light-gray);
+            color: var(--dark-gray);
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cart-dropdown-clear:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        .cart-dropdown-checkout {
+            flex: 1;
+            background: var(--secondary-green);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cart-dropdown-checkout:hover {
+            background: var(--primary-green);
+        }
+
+        .add-to-cart-btn {
+            background: white;
+            color: var(--secondary-green);
+            border: 2px solid var(--secondary-green);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--secondary-green);
+            color: white;
+            transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(74, 158, 74, 0.35);
+        }
+
+        .add-to-cart-btn.in-cart {
+            background: var(--light-green);
+            border-color: var(--primary-green);
+            color: var(--primary-green);
         }
 
         .hamburger {
@@ -308,138 +490,9 @@
             }
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark-gray);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .section-title p {
-            color: var(--medium-gray);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        /* Search & Filter Section */
-        .search-section {
-            background: var(--light-green);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 60px;
-        }
-
-        .search-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .search-input-container {
-            position: relative;
-            margin-bottom: 25px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 16px 12px 40px;
-            border: 2px solid var(--secondary-green);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(74, 158, 74, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--secondary-green);
-            pointer-events: none;
-        }
-
-        .filter-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .filter-tag {
-            background: white;
-            border: 2px solid var(--secondary-green);
-            color: var(--secondary-green);
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .filter-tag:hover {
-            background: var(--secondary-green);
-            color: white;
-        }
-
-        .filter-tag.active {
-            background: var(--secondary-green);
-            color: white;
-        }
-
-        .filter-tag i {
-            font-size: 0.85rem;
-        }
-
-        .clear-filters {
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-        }
-
-        .clear-filters a {
-            color: var(--primary-green);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .clear-filters a:hover {
-            color: var(--secondary-green);
-        }
-
-        .clear-filters.show {
-            display: block;
-        }
-
         /* Category Section */
         .service-category {
-            margin-bottom: 100px;
+            margin-bottom: 80px;
         }
 
         .category-header {
@@ -451,23 +504,31 @@
         }
 
         .category-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--light-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--secondary-green);
-            font-size: 24px;
+            font-size: 28px;
             margin-right: 20px;
             flex-shrink: 0;
         }
 
         .category-header h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--dark-gray);
             font-weight: 700;
+        }
+
+        .category-intro {
+            color: var(--medium-gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 900px;
         }
 
         /* Services Grid */
@@ -481,7 +542,7 @@
         .service-card {
             background: #fff;
             border-radius: 15px;
-            padding: 30px;
+            padding: 35px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             border-left: 4px solid var(--secondary-green);
@@ -514,51 +575,41 @@
 
         .service-card h4 {
             color: var(--dark-gray);
-            margin-bottom: 12px;
-            font-size: 1.25rem;
+            margin-bottom: 15px;
+            font-size: 1.35rem;
             font-weight: 700;
             line-height: 1.4;
         }
 
         .service-card p {
             color: var(--medium-gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            flex-grow: 1;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
         .service-features {
             list-style: none;
             padding: 0;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            flex-grow: 1;
         }
 
         .service-features li {
-            margin-bottom: 8px;
-            color: #666;
+            margin-bottom: 10px;
+            color: var(--medium-gray);
             display: flex;
-            align-items: center;
-            font-size: 0.9rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .service-features li i {
             color: var(--secondary-green);
-            margin-right: 10px;
+            margin-right: 12px;
+            margin-top: 4px;
             width: 16px;
-        }
-
-        /* Badge for service types */
-        .service-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
 
         .card-footer {
@@ -624,6 +675,11 @@
                 left: 0;
             }
 
+            .cart-dropdown {
+                width: 90vw;
+                right: 5vw;
+            }
+
             .services-hero {
                 padding: 40px 20px;
             }
@@ -649,12 +705,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
             .category-header h3 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             .cta-content h2 {
@@ -673,7 +725,7 @@
                 <span class="brand-name">T-RECS</span>
                 <span class="brand-tagline">Technical Recreation Solutions</span>
             </div>
-        </div>
+         </div>
         <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -682,6 +734,14 @@
         <nav class="nav-links" id="navLinks">
             <a href="services.html">Services</a>
             <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <div class="cart-icon-wrapper" onclick="toggleCartDropdown(event)">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+                <div class="cart-dropdown" id="cartDropdown">
+                    <!-- Cart items will be inserted here -->
+                </div>
+            </div>
             <a href="contact.html" class="cta-button">Get Started</a>
         </nav>
     </header>
@@ -701,592 +761,201 @@
                 </div>
             </div>
 
-            <!-- Search & Filter Section -->
-            <div class="search-section">
-                <div class="search-title">Find Your Solution</div>
-                <div class="search-input-container">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input" id="serviceSearch" placeholder="Search services (e.g., automation, security, teams)...">
-                </div>
-                <div class="filter-tags">
-                    <button class="filter-tag" onclick="filterByCategory('Foundation')"><i class="fas fa-check-circle"></i> Foundation</button>
-                    <button class="filter-tag" onclick="filterByCategory('Collaboration')"><i class="fas fa-people-carry"></i> Collaboration</button>
-                    <button class="filter-tag" onclick="filterByCategory('Automation')"><i class="fas fa-bolt"></i> Automation</button>
-                    <button class="filter-tag" onclick="filterByCategory('Analytics')"><i class="fas fa-chart-pie"></i> Analytics</button>
-                    <button class="filter-tag" onclick="filterByCategory('Security')"><i class="fas fa-shield-alt"></i> Security</button>
-                    <button class="filter-tag" onclick="filterByCategory('Strategy')"><i class="fas fa-compass"></i> Strategy</button>
-                    <button class="filter-tag" onclick="filterByCategory('Assessment')"><i class="fas fa-clipboard-check"></i> Assessment</button>
-                    <button class="filter-tag" onclick="filterByCategory('Optimization')"><i class="fas fa-chart-line"></i> Optimization</button>
-                    <button class="filter-tag" onclick="filterByCategory('Training')"><i class="fas fa-graduation-cap"></i> Training</button>
-                </div>
-                <div class="clear-filters" id="clearFilters">
-                    <a onclick="clearAllFilters()">Clear all filters</a>
-                </div>
-            </div>
-
-            <!-- ASSESSMENT & STRATEGIC PLANNING -->
+            <!-- STRATEGIC TECHNOLOGY PLANNING & ANALYSIS -->
             <div class="service-category">
                 <div class="category-header">
                     <div class="category-icon"><i class="fas fa-compass"></i></div>
-                    <h3>Assessment & Strategic Planning</h3>
+                    <h3>Strategic Technology Planning & Analysis</h3>
                 </div>
+                <p class="category-intro">We help organizations align their technology with strategic goals through comprehensive assessments and planning.</p>
+                
                 <div class="services-grid">
-                    <div class="service-card" data-tags="strategy, process, assessment, optimization, audit">
-                        <span class="service-badge">Essential</span>
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-search"></i></div>
-                        <h4>Systems & Process Audit</h4>
-                        <p>Comprehensive baseline assessment of current systems, workflows, and operational processes to identify inefficiencies and improvement opportunities.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Current system inventory</li>
-                            <li><i class="fas fa-check"></i> Process documentation & mapping</li>
-                            <li><i class="fas fa-check"></i> Gap analysis & recommendations</li>
-                        </ul>
+                        <h4>Technology Needs Assessment</h4>
+                        <p>Evaluate internal, external, or hybrid needs to identify solutions for current challenges and future growth.</p>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Technology Needs Assessment', 'Strategic Technology Planning & Analysis')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="strategy, transformation, digital, roadmap, planning">
-                        <span class="service-badge">Strategic</span>
+
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-paper-plane"></i></div>
                         <h4>Digital Transformation Strategy</h4>
-                        <p>Comprehensive roadmap for modernizing operations and technology infrastructure aligned with organizational goals and member needs.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Current state assessment</li>
-                            <li><i class="fas fa-check"></i> Future-state planning & vision</li>
-                            <li><i class="fas fa-check"></i> Implementation phasing & ROI</li>
-                        </ul>
+                        <p>Develop a roadmap for change—such as adopting new applications, workflows, or digital solutions—to enhance efficiency and innovation.</p>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Digital Transformation Strategy', 'Strategic Technology Planning & Analysis')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="assessment, facility, needs, planning, evaluation">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-building"></i></div>
-                        <h4>Facility Technology Needs Assessment</h4>
-                        <p>Evaluate your facility's current and future technology requirements to support operations, member experience, and staff efficiency.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Current technology inventory & gap analysis</li>
-                            <li><i class="fas fa-check"></i> Wi-Fi coverage & network infrastructure review</li>
-                            <li><i class="fas fa-check"></i> Access control & security system evaluation</li>
-                            <li><i class="fas fa-check"></i> Digital signage & communication needs</li>
-                            <li><i class="fas fa-check"></i> Technology roadmap with budget estimates</li>
-                        </ul>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <h4>Digital Operational Systems Audit</h4>
+                        <p>Analyze how current technologies are being used across the organization to identify gaps, inefficiencies, and opportunities for improvement.</p>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="assessment, community, needs, survey, planning">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-users"></i></div>
-                        <h4>Community Needs Assessment</h4>
-                        <p>Gather data-driven insights on community preferences, program demand, and facility usage to inform strategic decisions.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Survey design & distribution strategy</li>
-                            <li><i class="fas fa-check"></i> Demographic & usage pattern analysis</li>
-                            <li><i class="fas fa-check"></i> Priority ranking & demand forecasting</li>
-                            <li><i class="fas fa-check"></i> Digital engagement & feedback tools</li>
-                            <li><i class="fas fa-check"></i> Comprehensive findings report</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="assessment, operational, efficiency, process, workflow">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-tasks"></i></div>
-                        <h4>Operational Efficiency Assessment</h4>
-                        <p>Identify bottlenecks, redundancies, and technology opportunities to streamline operations and reduce administrative burden.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Process mapping & workflow analysis</li>
-                            <li><i class="fas fa-check"></i> Staff time-usage & capacity review</li>
-                            <li><i class="fas fa-check"></i> Technology utilization assessment</li>
-                            <li><i class="fas fa-check"></i> Automation opportunity identification</li>
-                            <li><i class="fas fa-check"></i> Efficiency improvement roadmap</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="assessment, technology, readiness, digital, infrastructure">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h4>Technology Readiness Assessment</h4>
-                        <p>Evaluate your organization's technology maturity, digital capabilities, and readiness for transformation initiatives.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Digital maturity benchmarking</li>
-                            <li><i class="fas fa-check"></i> Staff technology skills assessment</li>
-                            <li><i class="fas fa-check"></i> System integration capability review</li>
-                            <li><i class="fas fa-check"></i> Change readiness evaluation</li>
-                            <li><i class="fas fa-check"></i> Transformation roadmap & priorities</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Digital Operational Systems Audit', 'Strategic Technology Planning & Analysis')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Microsoft 365 & Collaboration -->
+            <!-- MICROSOFT SUPPORT SERVICES -->
             <div class="service-category">
                 <div class="category-header">
                     <div class="category-icon"><i class="fas fa-cloud"></i></div>
-                    <h3>Microsoft 365 & Collaboration</h3>
+                    <h3>Microsoft Support Services</h3>
                 </div>
+                <p class="category-intro">Maximize your Microsoft 365 investment with tailored packages designed to improve collaboration, productivity, and digital culture.</p>
+                
                 <div class="services-grid">
-                    <div class="service-card" data-tags="foundation, m365, microsoft, exchange, email, deployment">
-                        <span class="service-badge">Foundation</span>
-                        <div class="service-icon"><i class="fas fa-cloud"></i></div>
-                        <h4>Microsoft 365 Deployment</h4>
-                        <p>End-to-end setup and configuration optimized for sports and recreation organizations.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Exchange Online setup</li>
-                            <li><i class="fas fa-check"></i> Mailbox migration & management</li>
-                            <li><i class="fas fa-check"></i> Security & compliance configuration</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="foundation, sharepoint, architecture, metadata, taxonomy, intranet">
-                        <span class="service-badge">Foundation</span>
-                        <div class="service-icon"><i class="fas fa-building"></i></div>
-                        <h4>SharePoint Site Architecture & Metadata</h4>
-                        <p>Scalable information architecture with refined metadata taxonomies that connect seamlessly across Microsoft 365 applications.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Site structure & hierarchy design</li>
-                            <li><i class="fas fa-check"></i> Metadata & tagging taxonomy</li>
-                            <li><i class="fas fa-check"></i> M365 application integration planning</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="collaboration, teams, microsoft, communication, governance">
-                        <span class="service-badge">Collaboration</span>
-                        <div class="service-icon"><i class="fas fa-comments"></i></div>
-                        <h4>Teams & Collaboration Enablement</h4>
-                        <p>Tailored Teams implementation for optimal communication, collaboration, and governance across departments and programs.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Team architecture & governance</li>
-                            <li><i class="fas fa-check"></i> Channels & messaging policies</li>
-                            <li><i class="fas fa-check"></i> Integration with business processes</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="tracking, lists, microsoft, data, management">
-                        <span class="service-badge">Tracking</span>
-                        <div class="service-icon"><i class="fas fa-list"></i></div>
-                        <h4>Microsoft Lists Implementation</h4>
-                        <p>Intelligent list solutions for tracking projects, schedules, registrations, and organizational data.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Custom list templates</li>
-                            <li><i class="fas fa-check"></i> View & formula configuration</li>
-                            <li><i class="fas fa-check"></i> Workflow integration</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="management, planner, microsoft, project, tasks, scheduling">
-                        <span class="service-badge">Management</span>
-                        <div class="service-icon"><i class="fas fa-tasks"></i></div>
-                        <h4>Microsoft Planner & Task Management</h4>
-                        <p>Streamlined project and task management across teams with real-time progress tracking and reporting.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Plan creation & organization</li>
-                            <li><i class="fas fa-check"></i> Task assignment & tracking</li>
-                            <li><i class="fas fa-check"></i> Progress reporting & dashboards</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="scheduling, shifts, microsoft, staff, mobile">
-                        <span class="service-badge">Scheduling</span>
-                        <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
-                        <h4>Microsoft Shifts Scheduling</h4>
-                        <p>Mobile-first staff scheduling, shift management, and availability tracking for facilities and programs.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Schedule creation & management</li>
-                            <li><i class="fas fa-check"></i> Shift swaps & time-off requests</li>
-                            <li><i class="fas fa-check"></i> Mobile accessibility & notifications</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="engagement, viva, microsoft, culture, communication">
-                        <span class="service-badge">Engagement</span>
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-users"></i></div>
-                        <h4>Microsoft Viva Engagement & Connections</h4>
-                        <p>Employee engagement and internal communications platform for building culture and organizational alignment.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Viva Connections setup</li>
-                            <li><i class="fas fa-check"></i> Viva Engage implementation</li>
-                            <li><i class="fas fa-check"></i> Culture & engagement initiatives</li>
-                        </ul>
+                        <h4>Collaboration & Productivity Package</h4>
+                        <p>Configuration, implementation, and optimization of Microsoft 365 apps, including staff training.</p>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Collaboration & Productivity Package', 'Microsoft Support Services')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="security, governance, m365, compliance, retention, dlp">
-                        <span class="service-badge">Compliance</span>
-                        <div class="service-icon"><i class="fas fa-cog"></i></div>
-                        <h4>Microsoft 365 Governance & Security</h4>
-                        <p>Comprehensive governance frameworks, retention policies, and security controls across Microsoft 365 enterprise.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Information governance setup</li>
-                            <li><i class="fas fa-check"></i> Retention & eDiscovery policies</li>
-                            <li><i class="fas fa-check"></i> Security compliance & DLP</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Process Optimization & Automation -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>Process Optimization & Automation</h3>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card" data-tags="strategy, process, workflow, automation, bpmn">
-                        <span class="service-badge">Strategic</span>
-                        <div class="service-icon"><i class="fas fa-project-diagram"></i></div>
-                        <h4>BPMN Process Modeling & Design</h4>
-                        <p>Develop detailed Business Process Model and Notation documentation to standardize, optimize, and identify automation opportunities in critical workflows.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Process flow documentation</li>
-                            <li><i class="fas fa-check"></i> Workflow optimization</li>
-                            <li><i class="fas fa-check"></i> Automation opportunity identification</li>
-                        </ul>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-folder-open"></i></div>
+                        <h4>Information Management Package</h4>
+                        <p>SharePoint site architecture, metadata setup, document libraries, Microsoft Lists, implementation, and training.</p>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Information Management Package', 'Microsoft Support Services')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="automation, power automate, workflows, integration, efficiency">
-                        <span class="service-badge">Automation</span>
+
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-bolt"></i></div>
-                        <h4>Power Automate & Workflows</h4>
-                        <p>Intelligent automation of repetitive tasks and business processes to boost productivity and reduce manual work.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Cloud flow creation & logic</li>
-                            <li><i class="fas fa-check"></i> Business process automation</li>
-                            <li><i class="fas fa-check"></i> Integration with multiple systems</li>
-                        </ul>
+                        <h4>Task Management & Workflow Automation Package</h4>
+                        <p>Tools like Microsoft Planner, To Do, Lists, Power Automate, and M365 Copilot App Builder to streamline workflows and automate tasks, with staff training included.</p>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Task Management & Workflow Automation Package', 'Microsoft Support Services')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="intelligence, power bi, power apps, analytics, data, dashboards">
-                        <span class="service-badge">Intelligence</span>
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>Power Platform Integration</h4>
-                        <p>Data transformation through Power BI dashboards, Power Apps development, and intelligent automation.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Power BI dashboards & reports</li>
-                            <li><i class="fas fa-check"></i> Custom Power Apps development</li>
-                            <li><i class="fas fa-check"></i> Data model optimization</li>
-                        </ul>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-heart"></i></div>
+                        <h4>Engagement & Culture Package</h4>
+                        <p>Implementation and optimization of Microsoft Viva Suite to enhance employee engagement and workplace culture, including training and support.</p>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Engagement & Culture Package', 'Microsoft Support Services')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recreation Management Platforms -->
+            <!-- RECREATION MANAGEMENT PLATFORM OPTIMIZATION -->
             <div class="service-category">
                 <div class="category-header">
                     <div class="category-icon"><i class="fas fa-trophy"></i></div>
                     <h3>Recreation Management Platform Optimization</h3>
                 </div>
+                <p class="category-intro">Specialized audits and strategic roadmaps to improve the performance and usability of leading recreation management platforms.</p>
+                
                 <div class="services-grid">
-                    <div class="service-card" data-tags="optimization, perfectmind, xplor, recreation, audit, reporting">
-                        <span class="service-badge">Optimization</span>
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>Xplor Recreation (PerfectMind) Optimization</h4>
-                        <p>Tackle reporting challenges, simplify over-customization, and connect disconnected features to help your team use Xplor effectively without drowning in complexity.</p>
+                        <h4>Xplor Recreation (PerfectMind) - Health Check & Improvement Roadmap</h4>
+                        <p>Module utilization audit, custom reports, workflow optimization, and staff training.</p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> Module utilization audit & simplification</li>
                             <li><i class="fas fa-check"></i> Custom report building & data connections</li>
-                            <li><i class="fas fa-check"></i> Workflow streamlining for refunds & cancellations</li>
+                            <li><i class="fas fa-check"></i> Workflow streamlining</li>
                             <li><i class="fas fa-check"></i> Staff training on underutilized features</li>
-                            <li><i class="fas fa-check"></i> 90-day improvement roadmap with quick wins</li>
+                            <li><i class="fas fa-check"></i> 90-day improvement roadmap</li>
                         </ul>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Xplor Recreation (PerfectMind) - Health Check', 'Recreation Management Platform Optimization')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="optimization, activenet, recreation, audit, reporting, accounting">
-                        <span class="service-badge">Optimization</span>
+
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>ActiveNet Performance Enhancement</h4>
-                        <p>Fix financial reporting gaps, modernize your dated workflows, and unlock hidden features to finally get accurate revenue data and simplified processes.</p>
+                        <h4>ActiveNet - Health Check & Improvement Roadmap</h4>
+                        <p>Financial reporting configuration, UI training, and workflow optimization.</p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> Financial reporting configuration & validation</li>
-                            <li><i class="fas fa-check"></i> UI navigation training & shortcut creation</li>
+                            <li><i class="fas fa-check"></i> UI navigation training & shortcuts</li>
                             <li><i class="fas fa-check"></i> Report parameter simplification</li>
-                            <li><i class="fas fa-check"></i> Data management workflow optimization</li>
-                            <li><i class="fas fa-check"></i> 90-day improvement roadmap with quick wins</li>
+                            <li><i class="fas fa-check"></i> Workflow optimization</li>
+                            <li><i class="fas fa-check"></i> 90-day improvement roadmap</li>
                         </ul>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('ActiveNet - Health Check', 'Recreation Management Platform Optimization')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="optimization, intelli, intellileisure, membership, audit">
-                        <span class="service-badge">Optimization</span>
+
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>IntelliLeisure Systems Health Check</h4>
-                        <p>Simplify your IntelliLeisure setup, improve member portal usability, and ensure you're leveraging automation to reduce manual administrative work.</p>
+                        <h4>IntelliLeisure - Health Check & Improvement Roadmap</h4>
+                        <p>Configuration review, portal optimization, and automation identification.</p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> Configuration simplification review</li>
                             <li><i class="fas fa-check"></i> Member self-service portal optimization</li>
                             <li><i class="fas fa-check"></i> Automation opportunity identification</li>
-                            <li><i class="fas fa-check"></i> Integration assessment with other systems</li>
-                            <li><i class="fas fa-check"></i> 90-day improvement roadmap with quick wins</li>
+                            <li><i class="fas fa-check"></i> Integration assessment</li>
+                            <li><i class="fas fa-check"></i> 90-day improvement roadmap</li>
                         </ul>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('IntelliLeisure - Health Check', 'Recreation Management Platform Optimization')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="optimization, recstaff, staff, scheduling, payroll">
-                        <span class="service-badge">Optimization</span>
+
+                    <div class="service-card">
                         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>RecStaff Optimization Review</h4>
-                        <p>Modernize payment processes, streamline scheduling workflows, and simplify your interface to reduce staff frustration and improve data accuracy.</p>
+                        <h4>RecStaff - Health Check & Improvement Roadmap</h4>
+                        <p>Payment process review, scheduling optimization, and communication setup.</p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> Payment process modernization assessment</li>
-                            <li><i class="fas fa-check"></i> League & sports scheduling workflow optimization</li>
-                            <li><i class="fas fa-check"></i> UI navigation training & tab consolidation</li>
-                            <li><i class="fas fa-check"></i> Mass communication setup & templates</li>
-                            <li><i class="fas fa-check"></i> 90-day improvement roadmap with quick wins</li>
+                            <li><i class="fas fa-check"></i> Scheduling workflow optimization</li>
+                            <li><i class="fas fa-check"></i> UI navigation training</li>
+                            <li><i class="fas fa-check"></i> Mass communication setup</li>
+                            <li><i class="fas fa-check"></i> 90-day improvement roadmap</li>
                         </ul>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('RecStaff - Health Check', 'Recreation Management Platform Optimization')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    <div class="service-card" data-tags="strategy, recreation, software, audit, assessment, roadmap, platform">
-                        <span class="service-badge">Strategic</span>
-                        <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
                         <h4>Recreation Platform Strategic Audit</h4>
-                        <p>Platform-agnostic assessment for organizations questioning if their current system meets their needs or considering a switch. Get an unbiased evaluation and strategic roadmap.</p>
+                        <p>Comprehensive evaluation of your current recreation platform ecosystem.</p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> Current platform capability assessment</li>
                             <li><i class="fas fa-check"></i> Staff & member feedback analysis</li>
                             <li><i class="fas fa-check"></i> Integration & data flow documentation</li>
-                            <li><i class="fas fa-check"></i> Benchmark against industry best practices</li>
-                            <li><i class="fas fa-check"></i> Stay vs. switch recommendation with ROI</li>
+                            <li><i class="fas fa-check"></i> Industry benchmark comparison</li>
+                            <li><i class="fas fa-check"></i> Strategic recommendations with ROI analysis</li>
                         </ul>
                         <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Assessment & Planning Services (NEW) -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon"><i class="fas fa-clipboard-list"></i></div>
-                    <h3>Assessment & Planning Services</h3>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card" data-tags="assessment, facility, needs, planning, evaluation">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-building"></i></div>
-                        <h4>Facility Technology Needs Assessment</h4>
-                        <p>Evaluate your facility's current and future technology requirements to support operations, member experience, and staff efficiency.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Current technology inventory & gap analysis</li>
-                            <li><i class="fas fa-check"></i> Wi-Fi coverage & network infrastructure review</li>
-                            <li><i class="fas fa-check"></i> Access control & security system evaluation</li>
-                            <li><i class="fas fa-check"></i> Digital signage & communication needs</li>
-                            <li><i class="fas fa-check"></i> Technology roadmap with budget estimates</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="assessment, community, needs, survey, planning">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-users"></i></div>
-                        <h4>Community Needs Assessment</h4>
-                        <p>Gather data-driven insights on community preferences, program demand, and facility usage to inform strategic decisions.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Survey design & distribution strategy</li>
-                            <li><i class="fas fa-check"></i> Demographic & usage pattern analysis</li>
-                            <li><i class="fas fa-check"></i> Priority ranking & demand forecasting</li>
-                            <li><i class="fas fa-check"></i> Digital engagement & feedback tools</li>
-                            <li><i class="fas fa-check"></i> Comprehensive findings report</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="assessment, operational, efficiency, process, workflow">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-tasks"></i></div>
-                        <h4>Operational Efficiency Assessment</h4>
-                        <p>Identify bottlenecks, redundancies, and technology opportunities to streamline operations and reduce administrative burden.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Process mapping & workflow analysis</li>
-                            <li><i class="fas fa-check"></i> Staff time-usage & capacity review</li>
-                            <li><i class="fas fa-check"></i> Technology utilization assessment</li>
-                            <li><i class="fas fa-check"></i> Automation opportunity identification</li>
-                            <li><i class="fas fa-check"></i> Efficiency improvement roadmap</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="assessment, technology, readiness, digital, infrastructure">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h4>Technology Readiness Assessment</h4>
-                        <p>Evaluate your organization's technology maturity, digital capabilities, and readiness for transformation initiatives.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Digital maturity benchmarking</li>
-                            <li><i class="fas fa-check"></i> Staff technology skills assessment</li>
-                            <li><i class="fas fa-check"></i> System integration capability review</li>
-                            <li><i class="fas fa-check"></i> Change readiness evaluation</li>
-                            <li><i class="fas fa-check"></i> Transformation roadmap & priorities</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Analytics & Insights -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon"><i class="fas fa-chart-pie"></i></div>
-                    <h3>Data Analytics & Member Insights</h3>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card" data-tags="analytics, data, dashboards, insights, reporting">
-                        <span class="service-badge">Analytics</span>
-                        <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
-                        <h4>Recreation Analytics & Dashboards</h4>
-                        <p>Transform operational data into actionable insights with custom analytics and real-time dashboards.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Custom KPI dashboards</li>
-                            <li><i class="fas fa-check"></i> Member engagement tracking</li>
-                            <li><i class="fas fa-check"></i> Program performance analysis</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="strategy, retention, members, engagement, churn">
-                        <span class="service-badge">Strategy</span>
-                        <div class="service-icon"><i class="fas fa-users"></i></div>
-                        <h4>Member Retention & Engagement Strategy</h4>
-                        <p>Leverage data-driven insights to improve member satisfaction, reduce churn, and maximize lifetime value.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Churn prediction models</li>
-                            <li><i class="fas fa-check"></i> Engagement scoring</li>
-                            <li><i class="fas fa-check"></i> Targeted win-back campaigns</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="framework, performance, measurement, kpi, data">
-                        <span class="service-badge">Framework</span>
-                        <div class="service-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        <h4>Performance Measurement Program Setup</h4>
-                        <p>Build sustainable data practices aligned with strategic goals and operational needs.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> KPI definition & alignment</li>
-                            <li><i class="fas fa-check"></i> Data governance framework</li>
-                            <li><i class="fas fa-check"></i> Reporting infrastructure</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cybersecurity & Compliance -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Cybersecurity & Compliance</h3>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card" data-tags="security, assessment, audit, compliance, risk">
-                        <span class="service-badge">Assessment</span>
-                        <div class="service-icon"><i class="fas fa-lock"></i></div>
-                        <h4>Cybersecurity Assessment & Audit</h4>
-                        <p>Identify vulnerabilities and ensure systems meet industry standards and best practices.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Security risk assessment</li>
-                            <li><i class="fas fa-check"></i> Compliance gap analysis</li>
-                            <li><i class="fas fa-check"></i> Remediation roadmap</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="security, privacy, compliance, gdpr, data protection">
-                        <span class="service-badge">Compliance</span>
-                        <div class="service-icon"><i class="fas fa-user-secret"></i></div>
-                        <h4>Data Privacy & Compliance</h4>
-                        <p>Protect member data and ensure compliance with GDPR, CCPA, and industry regulations.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Data protection strategy</li>
-                            <li><i class="fas fa-check"></i> Privacy policy development</li>
-                            <li><i class="fas fa-check"></i> Compliance monitoring</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="service-card" data-tags="security, infrastructure, iot, facility, building systems">
-                        <span class="service-badge">Critical</span>
-                        <div class="service-icon"><i class="fas fa-server"></i></div>
-                        <h4>Secure Infrastructure & IoT Integration</h4>
-                        <p>Implement secure architecture for connected facilities, building management systems, and IoT devices.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Network segmentation</li>
-                            <li><i class="fas fa-check"></i> Building automation security</li>
-                            <li><i class="fas fa-check"></i> Device authentication & monitoring</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Implementation & Adoption -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Implementation & Adoption</h3>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card" data-tags="training, adoption, change management, education">
-                        <span class="service-badge">Training</span>
-                        <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <h4>User Training & Adoption</h4>
-                        <p>Tailored training programs and change management to ensure successful tool adoption and long-term success.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Custom training materials</li>
-                            <li><i class="fas fa-check"></i> On-site & virtual sessions</li>
-                            <li><i class="fas fa-check"></i> Ongoing support & guidance</li>
-                        </ul>
-                        <div class="card-footer">
-                            <a href="../pages/contact.html" class="cta-button-small">Get Started</a>
+                            <button class="add-to-cart-btn" onclick="addToCart('Recreation Platform Strategic Audit', 'Recreation Management Platform Optimization')">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1297,7 +966,7 @@
             <div class="cta-content">
                 <h2>Ready to Transform Your Organization?</h2>
                 <p>Let's discuss how we can help you leverage technology to enhance your sports and recreation programs.</p>
-                <a href="../pages/contact.html" class="cta-button">Schedule a Consultation</a>
+                <a href="contact.html" class="cta-button">Schedule a Consultation</a>
             </div>
         </section>
     </main>
@@ -1331,109 +1000,12 @@
         </div>
     </footer>
 
+    <script src="../js/cart.js"></script>
     <script>
         // Toggle mobile menu
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
-        }
-
-        // Search functionality
-        const searchInput = document.getElementById('serviceSearch');
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            filterServices(searchTerm);
-        });
-
-        // Filter by category
-        function filterByCategory(category) {
-            const buttons = document.querySelectorAll('.filter-tag');
-            const clickedButton = event.target.closest('.filter-tag');
-            
-            // Toggle active state
-            clickedButton.classList.toggle('active');
-            
-            // Check if any buttons are active
-            const hasActiveFilters = document.querySelectorAll('.filter-tag.active').length > 0;
-            document.getElementById('clearFilters').classList.toggle('show', hasActiveFilters);
-            
-            // Get all active categories
-            const activeCategories = Array.from(document.querySelectorAll('.filter-tag.active'))
-                .map(btn => btn.textContent.trim());
-            
-            filterServicesByCategories(activeCategories);
-        }
-
-        // Filter services by active categories
-        function filterServicesByCategories(categories) {
-            const cards = document.querySelectorAll('.service-card');
-            const categoryContainers = document.querySelectorAll('.service-category');
-            
-            if (categories.length === 0) {
-                // Show all if no filters active
-                cards.forEach(card => card.style.display = 'flex');
-                categoryContainers.forEach(container => container.style.display = 'block');
-                return;
-            }
-            
-            cards.forEach(card => {
-                const badge = card.querySelector('.service-badge');
-                const badgeText = badge ? badge.textContent.trim() : '';
-                
-                if (categories.includes(badgeText)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Hide empty category sections
-            categoryContainers.forEach(container => {
-                const visibleCards = container.querySelectorAll('.service-card[style="display: flex;"]');
-                container.style.display = visibleCards.length > 0 ? 'block' : 'none';
-            });
-        }
-
-        // Filter services by search term
-        function filterServices(searchTerm) {
-            const cards = document.querySelectorAll('.service-card');
-            const categoryContainers = document.querySelectorAll('.service-category');
-            
-            if (searchTerm === '') {
-                // Reset to category filters if search is empty
-                const activeCategories = Array.from(document.querySelectorAll('.filter-tag.active'))
-                    .map(btn => btn.textContent.trim());
-                filterServicesByCategories(activeCategories);
-                return;
-            }
-            
-            cards.forEach(card => {
-                const title = card.querySelector('h4').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                const tags = card.getAttribute('data-tags') || '';
-                
-                if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Hide empty category sections
-            categoryContainers.forEach(container => {
-                const visibleCards = container.querySelectorAll('.service-card[style="display: flex;"]');
-                container.style.display = visibleCards.length > 0 ? 'block' : 'none';
-            });
-        }
-
-        // Clear all filters
-        function clearAllFilters() {
-            document.querySelectorAll('.filter-tag').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('clearFilters').classList.remove('show');
-            document.getElementById('serviceSearch').value = '';
-            
-            document.querySelectorAll('.service-card').forEach(card => card.style.display = 'flex');
-            document.querySelectorAll('.service-category').forEach(container => container.style.display = 'block');
         }
 
         // Navbar scroll effect
@@ -1444,6 +1016,11 @@
             } else {
                 navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
             }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartUI();
         });
     </script>
 </body>
